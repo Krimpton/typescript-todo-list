@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+input, textarea, select, button {
+  &:focus {
+    outline: none;
+  }
+}
+
+body {
+  font-family: $openSansBold;
+  font-size: $fontSize16;
+  color: $blue;
+}

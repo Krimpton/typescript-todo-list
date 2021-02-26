@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "OpenSans-Bold";
+  src: url($publicDir + "/fonts/OpenSans-Bold.eot");
+  src: url($publicDir + "/fonts/OpenSans-Bold.eot") format("embedded-opentype"),
+  url($publicDir + "/fonts/OpenSans-Bold.ttf") format("truetype"),
+  url($publicDir + "/fonts/OpenSans-Bold.woff") format("woff"),
+  url($publicDir + "/fonts/OpenSans-Bold.svg") format("svg");
+}
