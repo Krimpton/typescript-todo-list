@@ -1,0 +1,16 @@
+.new-button {
+  margin: 0 0 0 961px;
+}
+
+.new-button p {
+  width: 83px;
+  height: 40px;
+  padding: 10px 12px 11px;
+  border-radius: 3px;
+  border: solid 1px #00a5ef;
+  background-color: #00a5ef;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+/*# sourceMappingURL=new-button.css.map */

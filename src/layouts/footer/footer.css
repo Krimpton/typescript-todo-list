@@ -1,0 +1,33 @@
+/* Fonts
+****************************************/
+/* Colors
+*********************************/
+.footer {
+  display: flex;
+  justify-content: center;
+  width: 1439px;
+  height: 50px;
+  margin: 173px 0 0;
+  padding: 16px 600px 15px;
+  background-color: #f1f1f1;
+  border-bottom: solid 1px #cdcdcd;
+  border-right: solid 1px #cdcdcd;
+}
+
+.footer p {
+  width: 240px;
+  height: 19px;
+  font-size: 14px;
+  color: #333333;
+}
+
+.footer span {
+  font-weight: 600;
+  color: #00a5ef;
+}
+
+.footer-name {
+  margin-left: 4px;
+}
+
+/*# sourceMappingURL=footer.css.map */

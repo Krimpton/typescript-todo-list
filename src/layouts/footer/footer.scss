@@ -1,0 +1,29 @@
+@import '../../assets/styles/variables';
+
+.footer {
+  display: flex;
+  justify-content: center;
+  width: 1439px;
+  height: 50px;
+  margin: 173px 0 0;
+  padding: 16px 600px 15px;
+  background-color: $footer_bg_color_gray;
+  border-bottom: $standard-border $light_gray;
+  border-right: $standard-border $light_gray;
+}
+
+.footer p {
+  width: 240px;
+  height: 19px;
+  font-size: $font_size_14;
+  color: $dark_gray;
+}
+
+.footer span {
+  font-weight: $open_sans_semi_bold;
+  color: $blue;
+}
+
+.footer-name {
+  margin-left: 4px;
+}

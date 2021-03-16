@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.scss";
-import MainContent from "./components/main-content/main-content";
+import MainContent from "./layouts/main-content/main-content";
 
 const App: React.FC = () => {
     return (
