@@ -1,0 +1,14 @@
+.view p {
+  width: 58px;
+  height: 32px;
+  font-size: 14px;
+  border-radius: 3px;
+  border: solid 1px #00a5ef;
+  background-color: #f4fafd;
+  padding: 8px 13px 7px;
+  margin: 8px 8px 8px 0;
+  font-family: Rubik;
+  color: #333333;
+}
+
+/*# sourceMappingURL=view.css.map */

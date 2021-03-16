@@ -1,0 +1,48 @@
+.tasks-wrapper {
+  width: 650px;
+  height: 517px;
+  margin: 0 395px 34px;
+  padding: 0 0 261px;
+}
+
+.tasks-wrapper p {
+  width: 170px;
+  height: 24px;
+  margin: 0 48px 4px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.created {
+  width: 218px;
+  height: 19px;
+  margin: 4px 0;
+  font-size: 14px;
+  color: #565656;
+}
+
+.expireds {
+  width: 215px;
+  height: 19px;
+  margin: 4px 3px 0 0;
+  font-size: 14px;
+  color: #565656;
+}
+
+.status-wrapper {
+  display: flex;
+  margin: 16px 0 24px 0;
+}
+
+.status-text p {
+  width: 650px;
+  height: 114px;
+  margin: 24px 0 0;
+  font-size: 14px;
+  font-weight: 300;
+  color: #333333;
+  white-space: pre-wrap;
+}
+
+/*# sourceMappingURL=tasks-details.css.map */
