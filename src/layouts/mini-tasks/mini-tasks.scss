@@ -4,42 +4,31 @@
   margin: 0 15px 0 0;
   width: 207px;
   height: 61px;
-  padding: 14px 61px 14px 65px;
   border-radius: 3px;
   border: $standard-border $mini_tasks_color_border;
-  position: relative;
+  cursor: cell;
 }
 
-.mini-tasks:last-child {
-  margin: 0;
+.mini-tasks:first-child {
+  margin-left: 16px;
 }
 
-.mini-tasks span {
-  position: absolute;
-  top: 14px;
-  right: 126px;
-  width: 16px;
-  height: 16px;
-  font-size: $font_size_16;
-  color: $dark_gray;
+.tasks-icons {
+  padding-top: 4px;
+  font-size: 16px;
+  color: #333333 !important;
 }
 
-.mini-tasks h6 {
-  position: absolute;
-  top: 14px;
-  right: 61px;
-  width: 56px;
-  height: 19px;
-  font-size: $font_size_14;
-  color: $dark_gray;
+.tasks-names {
+  font-size: 14px;
+  color: #333333;
 }
 
-.mini-tasks p {
-  position: absolute;
-  top: 33px;
-  right: 78px;
-  width: 39px;
-  height: 14px;
-  font-size: $font_size_10;
-  color: $main_tasks_color;
+.tasks-numbers {
+  font-size: 10px;
+  color: #565656;
+}
+
+.tasks-numbers p {
+  margin: 0 auto;
 }

@@ -1,19 +1,18 @@
 import React from "react";
 import "./tasks-info.scss"
 
-const TasksInfo: React.FC = () => {
-    return (<div className="tasks-info">
+export type TasksProps = {
+    tasksNumber: number;
+    tasksName: string;
+}
 
-            <div className="tasks-container d-flex">
-                <p>57</p>
-                <span>Created tasks</span>
-            </div>
+const TasksInfo: React.FC<TasksProps> = ({tasksName, tasksNumber}) => {
+    return (<div className="tasks-info d-flex justify-content-center">
 
-            <div className="tasks-container">
-                <p>22</p>
-                <span>Completed tasks</span>
-            </div>
-
+        <div className="created-tasks-container d-flex justify-content-center align-items-center">
+            <p className="tasks-number">{tasksNumber}</p>
+            <span className="task-name">{tasksName}</span>
+        </div>
     </div>)
 }
 

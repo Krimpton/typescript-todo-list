@@ -1,11 +1,12 @@
 import React from "react";
 import "./App.scss";
-import MainContent from "./layouts/main-content/main-content";
+import MainContent from "./router/main-content";
+import {ButtonProps} from "./store/store";
 
-const App: React.FC = () => {
+const App: React.FC<ButtonProps> = () => {
     return (
         <div>
-            <MainContent />
+            <MainContent/>
         </div>
     );
 };

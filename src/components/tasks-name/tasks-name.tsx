@@ -1,9 +1,13 @@
 import React from "react";
 import "./tasks-name.scss";
 
-const TasksName: React.FC = () => {
-    return (<div className="name">
-        <p>Lorem ipsum dolor</p>
+export type sType = {
+    text: string;
+}
+
+const TasksName: React.FC<sType> = ({text}) => {
+    return (<div className="text">
+        <p>{text}</p>
     </div>)
 }
 

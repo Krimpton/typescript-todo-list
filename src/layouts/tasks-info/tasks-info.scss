@@ -1,19 +1,27 @@
+@import '../../assets/styles/variables';
 
-.tasks-info {
-  margin: 24px 0 0 0;
+.created-tasks-container {
+  width: 325px;
+  height: 60px;
+  border-radius: 3px;
+  border: $standard_border $border_color_gray;
 }
 
-.tasks-container p{
-  width: 23px;
-  height: 27px;
-  font-size: 20px;
+.created-tasks-container p{
+  font-size: $font_size_20;
   font-weight: bold;
   color: #623590;
 }
 
-.tasks-container span {
-  width: 89px;
-  height: 19px;
+.created-tasks-container span{
   font-size: 14px;
   color: #333333;
+}
+
+.tasks-number {
+  margin: 17px 19px 16px 103px;
+}
+
+.task-name {
+  margin: 21px 102px 20px 0;
 }

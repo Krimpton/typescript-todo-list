@@ -1,9 +1,13 @@
 import React from "react";
 import "./tasks-date.scss";
 
-const TasksDate: React.FC = () => {
+export type dateProps = {
+    date: string;
+}
+
+const TasksDate: React.FC<dateProps> = ({date}) => {
     return (<div className="date">
-        <p>1/03/2020, 10:23 am</p>
+        <p>{date}</p>
     </div>)
 }
 

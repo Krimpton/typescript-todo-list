@@ -1,0 +1,75 @@
+/* Fonts
+****************************************/
+/* Colors
+*********************************/
+.main-wrapper {
+  width: 1441px;
+  height: 1200px;
+  font-family: "Open Sans", sans-serif;
+  border: solid 1px #cdcdcd;
+  white-space: nowrap;
+}
+
+.tasks-info {
+  display: flex;
+  justify-content: center;
+}
+
+.tasks-container {
+  width: 325px;
+  height: 60px;
+  padding: 17px 102px 16px 103px;
+  margin: 0 0 25px 0;
+  border-radius: 3px;
+  border: solid 1px #cdcdcd;
+  display: flex;
+}
+
+.tasks-container:last-child {
+  margin-right: 0;
+}
+
+.tasks-container p {
+  width: 23px;
+  height: 27px;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #623590;
+}
+
+.tasks-container span {
+  width: 89px;
+  height: 19px;
+  margin: 4px 0 4px 8px;
+  font-size: 14px;
+  color: #333333;
+}
+
+.category-btn {
+  position: relative;
+  width: 207px;
+  height: 61px;
+  margin: 15px 14px 47px 395px;
+  border-radius: 3px;
+  border: solid 1px #00a5ef;
+}
+
+.category-btn span, p {
+  font-size: 14px;
+  color: #00a5ef;
+}
+
+.category-btn span {
+  position: absolute;
+  top: 23px;
+  left: 49px;
+}
+
+.category-btn p {
+  position: absolute;
+  top: 21px;
+  left: 72px;
+}
+
+/*# sourceMappingURL=router.css.map */

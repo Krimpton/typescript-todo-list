@@ -1,0 +1,11 @@
+@import '../assets/styles/variables';
+
+.main-wrapper {
+  width: 1440px;
+  height: 700px;
+  font-family: $open_sans;
+  border: $standard_border $border_color_gray;
+  white-space: nowrap;
+
+  margin: 0 auto;
+}

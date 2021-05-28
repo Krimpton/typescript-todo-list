@@ -1,0 +1,385 @@
+//*****************************************
+//done-button
+
+.button {
+  border-radius: 3px;
+
+}
+
+.button:hover {
+  transition: 1s background-color;
+
+}
+
+.done-button {
+  width: 78px;
+  height: 32px;
+  margin: 0 16px 0 0;
+  border: solid 1px #19bf33;
+  background-color: #19bf33;
+
+  color: #ffffff;
+
+  transition: background-color 1s;
+
+  &:hover {
+    background: greenyellow;
+  }
+}
+
+//*****************************************
+//material-icons
+
+.material-icons {
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.material-icons-margin-0 {
+  margin: 0 !important;
+}
+
+.button-text {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+//*****************************************
+//edit-button
+
+.edit-button {
+  width: 69px;
+  height: 32px;
+  margin: 0 16px 0 0;
+  border: solid 1px #00a5ef;
+  background-color: #00a5ef;
+
+  transition: background-color 1s;
+
+  &:hover {
+    background: blue;
+  }
+}
+
+//*****************************************
+//remove-button
+
+.remove-button {
+  width: 97px;
+  height: 32px;
+  border: solid 1px #e3394d;
+  background-color: #e3394d;
+
+  transition: background-color 1s;
+
+  &:hover {
+    background: red;
+  }
+}
+
+.cancel-button {
+  width: 65px;
+  height: 40px;
+  margin: 7px 0 0 16px;
+  border: solid 1px #d8d8d8;
+  background-color: #ffffff;
+  font-size: 14px;
+
+  transition: background-color 1s;
+}
+
+.cancel-button .button-text {
+  margin: 0 auto;
+  color: #333333;
+  padding: 11px 9px 10px 12px;
+}
+
+.cancel-button:hover {
+  background-color: #979797;
+}
+
+.delete-button {
+  width: 65px;
+  height: 40px;
+  margin: -40px 0 0 308px;
+  border-radius: 3px;
+  border: solid 1px #00a5ef;
+  background-color: #00a5ef;
+
+  transition: background-color 1s;
+}
+
+.delete-button .button-text {
+
+  margin: 0 auto;
+
+  color: #ffffff;
+}
+
+.delete-button:hover {
+  background-color: #e3394d;
+}
+
+.save-button {
+  width: 53px;
+  height: 40px;
+  margin: -40px 0 0 324px;
+  border-radius: 3px;
+  border: solid 1px #00a5ef;
+  background-color: #00a5ef;
+
+  transition: 1s background-color;
+}
+
+.save-button .button-text {
+  margin: 0 auto;
+  padding: 11px 9px 10px 12px;
+  color: #ffffff;
+}
+
+.save-button:hover {
+  background-color: #3737b1;
+}
+
+.add-new-button {
+  margin: 0 0 0 961px;
+
+  width: 83px;
+  height: 40px;
+  padding: 10px 12px 11px;
+  border-radius: 3px;
+  border: solid 1px #00a5ef;
+  background-color: #00a5ef;
+
+  font-size: 14px;
+  color: #ffffff;
+
+  transition: 1s background-color;
+}
+
+.add-new-button:hover {
+  background-color: #2a2afd;
+}
+
+.pagination-button {
+  width: 32px;
+  height: 32px;
+  padding: 8px 12px 7px;
+  border-radius: 3px;
+  border: solid 1px #d8d8d8;
+  background-color: #ffffff;
+
+  font-size: 14px;
+
+  margin: 16px 8px 16px 395px;
+
+  transition: 1s background-color;
+}
+
+.pagination-button .button-text {
+  color: #333333;
+}
+
+.pagination-button:hover {
+  background-color: #00a5ef;
+}
+
+.pagination-button:nth-child(2) {
+  margin-left: 0;
+}
+
+.pagination-button:nth-child(3) {
+  border: none;
+
+  margin-left: 0;
+}
+
+.pagination-button:nth-child(3):hover {
+
+  background-color: #ffffff;
+  transition: 0s background-color;
+}
+
+.pagination-button:nth-child(4) {
+  margin-left: 0;
+}
+
+
+//************************
+
+.pending-button {
+  width: 76px;
+  height: 32px;
+  border-radius: 4px;
+  border: solid 1px #d1ecfa;
+  background-color: #f4fafd;
+
+  margin: 8px 32px 8px 91px;
+}
+
+.pending-button .button-text {
+  padding: 8px 11px 7px;
+
+  font-family: Rubik;
+  font-size: 14px;
+  color: #333333;
+}
+
+//************************
+
+.complete-button {
+  width: 93px;
+  height: 32px;
+  border-radius: 4px;
+  border: solid 1px #b6f2b2;
+  background-color: #f3fcf3;
+
+  margin: 8px 32px 8px 91px;
+}
+
+.complete-button .button-text {
+  padding: 8px 11px 7px;
+
+  font-family: Rubik;
+  font-size: 14px;
+  color: #333333;
+}
+
+//************************
+
+.expired-button {
+  width: 71px;
+  height: 32px;
+  border-radius: 4px;
+  border: solid 1px #fbe4e7;
+  background-color: #fff9fa;
+
+  margin: 8px 32px 8px 91px;
+}
+
+.expired-button .button-text {
+  padding: 8px 11px 7px;
+
+  font-family: Rubik;
+  font-size: 14px;
+  color: #333333;
+}
+
+//************************
+
+.inactive-button {
+  width: 71px;
+  height: 32px;
+  border-radius: 4px;
+  border: solid 1px #f8f8f8;
+  background-color: #f8f8f8;
+
+  margin: 8px 32px 8px 91px;
+}
+
+.inactive-button .button-text {
+  padding: 8px 11px 7px;
+
+  font-family: Rubik;
+  font-size: 14px;
+  color: #333333;
+}
+
+//***************************
+
+
+.button-view {
+  width: 58px;
+  height: 32px;
+  border-radius: 3px;
+  border: solid 1px #00a5ef;
+  background-color: #f4fafd;
+
+  margin: 8px 8px 8px 44px;
+
+  transition: 1s background-color;
+}
+
+.button-view:hover {
+  background-color: #00a5ef;
+}
+
+.button-view .button-text {
+
+  font-size: 14px;
+  color: #333333;
+}
+
+
+.button-404 {
+  width: 149px;
+  height: 40px;
+  margin: 0 98px;
+  border: solid 1px #00a5ef;
+  background-color: #00a5ef;
+
+  transition: 1s background-color;
+
+}
+
+.button-404:hover {
+  background-color: #1d41a7;
+}
+
+.button-404 .button-text {
+  margin: 0;
+  padding: 10px 12px 11px;
+}
+
+
+.login-button {
+  width: 58px;
+  height: 32px;
+
+  margin: 16px 16px 16px 315px;
+
+  border-radius: 3px;
+  border: solid 1px #00a5ef;
+  background-color: #00a5ef;
+
+  transition: background-color 1s;
+}
+
+.login-button:hover {
+  background-color: #2a2afd;
+}
+
+.login-button .button-text {
+  width: 26px;
+  height: 30px;
+
+  font-size: 14px;
+  margin: 0;
+  line-height: 30px;
+  padding: 7px 10px 6px 12px;
+}
+
+
+.big-button-add {
+  width: 207px;
+  height: 61px;
+  margin: 15px 14px 330px 395px;
+  border-radius: 3px;
+  border: solid 1px #00a5ef;
+  background-color: #ffffff;
+
+  transition: background-color 1s;
+}
+
+.big-button-add:hover {
+  background-color: #ccd8e7;
+}
+
+.big-button-add .button-text {
+  margin-left: 9px;
+  color: #00a5ef;
+}
+
+.big-button-add span {
+  color: #00a5ef;
+}

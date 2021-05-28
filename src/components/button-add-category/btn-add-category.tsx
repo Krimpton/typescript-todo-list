@@ -1,14 +1,11 @@
 import React from "react";
 import "./btn-add-category.scss"
-
+import Button from "../../layouts/tasks-details/buttons/main-button/main-button";
 
 const AddCategory: React.FC = () => {
     return (<div>
         <div className="category wrapper">
-            <div className="category-btn">
-                <span className="material-icons">add</span>
-                <p>Add category</p>
-            </div>
+
         </div>
     </div>)
 }
