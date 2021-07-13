@@ -1,8 +1,7 @@
-import {applyMiddleware, createStore} from "redux";
-import {rootReducer} from "./reducers/combine-reducers";
-import {composeWithDevTools} from 'redux-devtools-extension'
+import {applyMiddleware, createStore, Store} from "redux";
+import {reducer} from "./reducers/reducer";
 import thunk from "redux-thunk";
-import {useHistory} from "react-router-dom";
+import {ArticleAction, ArticleState, DispatchType, IArticle} from "./actions/actions-type/types";
 
 export type ButtonProps = {
     text?: string;
@@ -12,19 +11,11 @@ export type ButtonProps = {
     singleButton?: any;
 }
 
+export type TaskProps = {
+    article: IArticle;
+    removeArticle: (article: IArticle) => void;
+};
 
-
-export const HandleAction = () => {
-
-}
-
-
-export type complete = string[];
-export type incomplete = string[];
-
-export interface storeType {
-    complete: complete;
-    incomplete: incomplete;
-}
-
-export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
+export const store: Store<ArticleState, ArticleAction> & {
+    dispatch: DispatchType;
+} = createStore(reducer, applyMiddleware(thunk));

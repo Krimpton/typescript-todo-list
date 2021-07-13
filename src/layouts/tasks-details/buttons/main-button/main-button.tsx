@@ -9,10 +9,8 @@ export type ButtonProps = {
     singleButton?: any;
 }
 
-// how i can reuse button component when i dont have material icons class in my new button
 
-
-const Button: React.FC<ButtonProps> = ({text, classNames, children, action, mIcons, singleButton}) => {
+const Button: React.FC<ButtonProps> = ({text, classNames, children, action  , mIcons, singleButton}) => {
     return (
         <button className={`button d-flex justify-content-center align-items-center  ${classNames || ''} `} onClick={action}>
             {children}

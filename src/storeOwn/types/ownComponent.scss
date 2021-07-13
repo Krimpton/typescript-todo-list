@@ -1,0 +1,33 @@
+
+.styles {
+
+    max-width: 649px;
+    height: 48px;
+    margin: 8px 1px 8px 395px;
+    padding: 0;
+    border-radius: 3px;
+    border: solid 1px #d8d8d8;
+
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.todoStyle {
+    color: red;
+    border: 2px solid red;
+}
+
+.date p {
+    margin: 15px 0 14px 0;
+
+    font-size: 14px;
+    color: #565656;
+}
+
+
+.todos-name {
+    line-height: 1;
+    margin: 15px 91px 14px 0;
+    color: red;
+}

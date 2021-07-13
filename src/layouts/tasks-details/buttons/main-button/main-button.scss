@@ -274,7 +274,8 @@
   border: solid 1px #f8f8f8;
   background-color: #f8f8f8;
 
-  margin: 8px 32px 8px 91px;
+  margin: 8px 32px 8px;
+  margin-left: 0 !important;
 }
 
 .inactive-button .button-text {

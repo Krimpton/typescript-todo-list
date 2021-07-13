@@ -15,8 +15,8 @@ const TasksMainList: FC = () => {
             <Header/>
             <div className="tasks-group-list d-flex justify-content-center mb-5">
 
-            <TasksInfo tasksNumber={21} tasksName={'Created tasks'}/>
-            <TasksInfo tasksNumber={7} tasksName={'Completed tasks'}/>
+                <TasksInfo tasksNumber={21} tasksName={'Created tasks'}/>
+                <TasksInfo tasksNumber={7} tasksName={'Completed tasks'}/>
 
             </div>
 
@@ -26,9 +26,11 @@ const TasksMainList: FC = () => {
 
             <PageButtons/>
 
-            <ButtonDropdownTest classNames={"tasks-button"} iName={'Actions'} iIcons={'keyboard_arrow_down'} actionName={"Actions:"} action0={"Done"} action1={"Edit Task"} action2={"Remove Task"}/>
+            <ButtonDropdownTest classNames={"tasks-button"} iName={'Actions'} iIcons={'keyboard_arrow_down'}
+                                actionName={"Actions:"} action0={"Done"} action1={"Edit Task"} action2={"Remove Task"}/>
 
-            <Button text={"Add New"} singleButton={'material-icons-margin-0'} classNames={'add-new-button'}/>
+            {/*<Button text={"Add New"} singleButton={'material-icons-margin-0'} classNames={'add-new-button'}/>*/}
+
 
             <Footer/>
         </div>
