@@ -11,7 +11,6 @@ import moment from "moment";
 import ViewButton from "../components/view-button/view";
 
 const TodosWrapper: React.FC = () => {
-
     const ToDos: React.FC = () => {
         const dispatch = useDispatch();
         const todos = useSelector((state: TaskState) => state.todos);
@@ -63,9 +62,9 @@ const TodosWrapper: React.FC = () => {
     };
 
     return (
-            <div>
-                <ToDos />
-            </div>
+        <div>
+            <ToDos />
+        </div>
     );
 };
 
