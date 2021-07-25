@@ -2,7 +2,7 @@
 .tasks-wrapper {
   width: 650px;
   height: 517px;
-  margin: 0 395px 34px;
+  margin: 0 645px 34px;
   padding: 0 0 261px;
 }
 
@@ -19,10 +19,6 @@
 .delete-block-bottom {
   border-top: solid 1px #d8d8d8;
 }
-
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//resolve problem that disabled new css modal styles
-
 
 button {
   padding: 0 !important;
@@ -77,10 +73,6 @@ button {
 
 
   white-space: pre-wrap;
-}
-
-.without-double-button {
-
 }
 
 //EDIT
@@ -154,7 +146,11 @@ button {
 .button-pending .button-text {
   width: 54px;
   height: 17px;
-  font-family: Rubik;
+  font-family: Rubik, serif;
   font-size: 14px;
   color: #333333;
+}
+
+.return-button {
+  color: deepskyblue;
 }

@@ -141,12 +141,13 @@
   background-color: #3737b1;
 }
 
-.add-new-button {
-  margin: 0 0 0 961px;
+.add-new-wrapper {
+  margin: 64px 0 0 28px;
+}
 
+.add-new-button {
   width: 83px;
   height: 40px;
-  padding: 10px 12px 11px;
   border-radius: 3px;
   border: solid 1px #00a5ef;
   background-color: #00a5ef;
@@ -155,6 +156,7 @@
   color: #ffffff;
 
   transition: 1s background-color;
+  margin-right: 400px;
 }
 
 .add-new-button:hover {
@@ -274,7 +276,7 @@
   border: solid 1px #f8f8f8;
   background-color: #f8f8f8;
 
-  margin: 8px 32px 8px;
+  margin: 8px 32px 8px 0;
   margin-left: 0 !important;
 }
 
@@ -364,10 +366,11 @@
 .big-button-add {
   width: 207px;
   height: 61px;
-  margin: 15px 14px 330px 395px;
+  margin: 15px 444px 0 0;
   border-radius: 3px;
   border: solid 1px #00a5ef;
   background-color: #ffffff;
+
 
   transition: background-color 1s;
 }
@@ -383,4 +386,13 @@
 
 .big-button-add span {
   color: #00a5ef;
+}
+
+.return-button {
+  width: 90px;
+  height: 30px;
+  color: #ffffff;
+  font-size: 16px;
+  background-color: skyblue;
+  margin: 25px 0 0 0;
 }

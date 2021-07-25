@@ -1,5 +1,4 @@
-import {StatusTypesEnum} from "../../constans";
-
+import { StatusTypesEnum } from "../constants/constans";
 
 export enum taskTypes {
     ADD_TASK = "ADD_TASK",
@@ -14,12 +13,10 @@ export interface TaskState {
 export type TaskItemType = {
     id: number;
     title: string;
-    description: string;
     status: StatusTypesEnum;
     expiredAt: string;
-}
+};
 
-// action interface
 export interface UserAction {
     type: string;
     payload?: any;

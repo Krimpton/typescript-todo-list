@@ -1,34 +1,68 @@
-import * as actionTypes from "../actions/actions-type/actionTypes";
-import {ArticleAction, ArticleState, IArticle} from "../actions/actions-type/types";
+import { TaskState, taskTypes, UserAction } from "../types/types";
+import { StatusTypesEnum } from "../constants/constans";
+import { v4 as uuidv4 } from 'uuid';
+import moment from "moment";
 
-const initialState: ArticleState = {
-    articles: [
-        {id: 1, title: 'Lorem ipsum dolor', body: 'LOREM_X1!', status: 'Pending'},
-        // {id: 2, title: 'Lorem ipsum dolor', body: 'LOREM_X2!', status: 'Completed'},
-        // {id: 2, title: 'Lorem ipsum dolor', body: 'LOREM_X2!', status: 'Expired'},
-        // {id: 2, title: 'Lorem ipsum dolor', body: 'LOREM_X2!', status: 'Inactive'},
-    ]
-}
+export const time = moment().format("MMMM Do YYYY, h:mm:ss a");
 
-export const reducer = (state: ArticleState = initialState, action: ArticleAction): ArticleState => {
+export const initialState: TaskState = {
+    todos: [
+        {
+            id: uuidv4(),
+            title: "Play Rust",
+            status: StatusTypesEnum.INACTIVE,
+            expiredAt: time,
+        },
+        {
+            id: uuidv4(),
+            title: "Drink Coffee",
+            status: StatusTypesEnum.COMPLETED,
+            expiredAt: time,
+        },
+        {
+            id: uuidv4(),
+            title: "Call Mark",
+            status: StatusTypesEnum.EXPIRED,
+            expiredAt: time,
+        },
+        {
+            id: uuidv4(),
+            title: "Drink Water",
+            status: StatusTypesEnum.PENDING,
+            expiredAt: time,
+        },
+        {
+            id: uuidv4(),
+            title: "Walk",
+            status: StatusTypesEnum.INACTIVE,
+            expiredAt: time,
+        },
+        {
+            id: uuidv4(),
+            title: "Watch YouTube",
+            status: StatusTypesEnum.INACTIVE,
+            expiredAt: time,
+        },
+        {
+            id: uuidv4(),
+            title: "Charge phone",
+            status: StatusTypesEnum.INACTIVE,
+            expiredAt: time,
+        },
+
+    ],
+};
+
+export const reducer = (state = initialState, action: UserAction): TaskState => {
     switch (action.type) {
-        case actionTypes.ADD_ARTICLE:
-            const newArticle: IArticle = {
-                id: Math.random(),
-                title: action.article.title,
-                body: action.article.body,
-                status: action.article.status
-            };
-            return {
-                ...state,
-                articles: state.articles.concat(newArticle)
-            };
-        case actionTypes.REMOVE_ARTICLE:
-            const updateArticles: IArticle[] = state.articles.filter(
-                (article) => article.id !== action.article.id
-            );
-            return {...state, articles: updateArticles}
+        case taskTypes.ADD_TASK:
+            return { ...state, todos: [...state.todos, action.payload] };
+        // case taskTypes.DELETE_TASK:
+        //     return { ...state, todos: state.todos.filter((todo) => todo.id !== action.payload) };
+        // return {...state, task: state.task.filter(taskText => taskText !== action.payload)};
+        // case taskTypes.EDIT_TASK:
+        //     return {...state, todos: state.todos.filter()};
         default:
             return state;
     }
-}
+};

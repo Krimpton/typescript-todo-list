@@ -1,7 +1,7 @@
 import React from "react";
 import "./tasks-name.scss";
 import {useDispatch, useSelector} from "react-redux";
-import {TaskState, taskTypes} from "../../storeOwn/types/ownTypes";
+import {TaskState, taskTypes} from "../../store/types/types";
 
 export type sType = {
     text?: string;

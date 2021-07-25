@@ -3,18 +3,17 @@
 .footer {
   display: flex;
   justify-content: center;
-  width: 1439px;
+  align-items: center;
   height: 50px;
+  width: 100%;
   padding: 16px 600px 15px;
   margin-top: 20px;
   background-color: $footer_bg_color_gray;
-  border-bottom: $standard-border $light_gray;
-  border-right: $standard-border $light_gray;
 }
 
 .footer p {
-  width: 240px;
-  height: 19px;
+  display: flex;
+  justify-content: center;
   font-size: $font_size_14;
   color: $dark_gray;
 }

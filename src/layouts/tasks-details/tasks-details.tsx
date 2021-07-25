@@ -1,13 +1,13 @@
 import React, { FC } from "react";
 import "./tasks-details.scss";
-import ModalWindow from "../../components/modal-windows/modal-tasks-datails-delete/modal-window";
 import Button from "./buttons/main-button/main-button";
-import InputComponent from "../../components/input-component/input-component";
 import TasksText from "../a-complete-layouts/tasks-details-component/tasks-text/tasks-text";
-import { Dispatch } from "redux";
-import { useDispatch } from "react-redux";
-import { IArticle } from "../../store/actions/actions-type/types";
-import { removeArticle } from "../../store/actions/actionCreators";
+import ModalWindow from "../../components/modal-windows/modal-tasks-datails-delete/modal-window";
+import InputComponent from "../../components/input-component/input-component";
+import { useHistory } from "react-router-dom";
+import { time } from "../../store/reducers/reducer";
+import { useSelector } from "react-redux";
+import { TaskItemType } from "../../store/types/types";
 
 export type TasksDetailsProps = {
     active: boolean;
@@ -17,11 +17,10 @@ export type TasksDetailsProps = {
 export type InputDetailsProps = {
     inputTitle: string;
     expiredAt?: string;
-    description?: string;
 };
 
 const TasksDetails: FC = () => {
-    const [modalActive2, setModalActive2] = React.useState(true);
+    const [modalActive2, setModalActive2] = React.useState<boolean>(true);
 
     const toggleVisibleHandler = () => {
         setModalActive2((modalActive2) => !modalActive2);
@@ -29,16 +28,16 @@ const TasksDetails: FC = () => {
         console.log(modalActive2);
     };
 
-    const dispatch: Dispatch<any> = useDispatch();
+    const history = useHistory();
 
-    const deleteArticle = React.useCallback(
-        (article: IArticle) => dispatch(removeArticle(article)),
-        [dispatch, removeArticle],
-    );
+    const handleClickTasks = () => {
+        history.push("/tasksList");
+    };
+
+    const title = useSelector((state: TaskItemType) => state.title);
 
     return (
         <div className="tasks-wrapper">
-            {modalActive2 && <input/>  }
             <ModalWindow active={modalActive2} setActive={setModalActive2}>
                 <div className="edit-wrapper">
                     <div className="edit-header d-flex justify-content-center align-items-center">
@@ -48,11 +47,7 @@ const TasksDetails: FC = () => {
                         </span>
                     </div>
                     <div className="edit-main-content">
-                        <InputComponent
-                            inputTitle={"Name"}
-                            description={"Description"}
-                            expiredAt={"Expired at"}
-                        />
+                        <InputComponent inputTitle={"Name"} expiredAt={"Expired at"} />
                     </div>
                     <div className="edit-footer">
                         <Button
@@ -71,20 +66,18 @@ const TasksDetails: FC = () => {
                 </div>
             </ModalWindow>
 
-            <p className="tasks-title">Lorem ipsum dolor</p>
-            <h1 className="tasks-created">Created at: 20/02/2020, 07:00 pm</h1>
-            <h1 className="tasks-expired">Expired at: 21/02/2020, 07:58 am</h1>
+            <p className="tasks-title">LOREM</p>
+            <h1 className="tasks-created">{time}</h1>
+            <h1 className="tasks-expired ">{time}</h1>
             <Button text={"Pending"} classNames={"button-pending"} />
 
             <div className="status-wrapper">
-                <Button text={"Done"}
-                        classNames={"done-button"}
-                        mIcons={"done"}
-                        action={() => setModalActive2(true)}/>
-
-
-                <button onClick={() => setModalActive2(true)}>DDDDDDDDDDDDDDDD</button>
-
+                <Button
+                    text={"Done"}
+                    classNames={"done-button"}
+                    mIcons={"done"}
+                    action={() => setModalActive2(true)}
+                />
 
                 <Button
                     text={"Edit"}
@@ -93,18 +86,22 @@ const TasksDetails: FC = () => {
                     action={toggleVisibleHandler}
                 />
 
-                <Button
-                    text={"Remove"}
-                    classNames={"remove-button"}
-                    mIcons={"remove"}
-                    action={() => deleteArticle}
-                />
+                <Button text={"Remove"} classNames={"remove-button"} mIcons={"remove"} />
             </div>
 
             <div className="status-text">
                 <TasksText />
             </div>
+            <div className="d-flex justify-content-end align-items-center">
+                <Button
+                    text="Return"
+                    classNames={"return-button"}
+                    mIcons={"remove"}
+                    action={handleClickTasks}
+                />
+            </div>
         </div>
     );
 };
+
 export default TasksDetails;

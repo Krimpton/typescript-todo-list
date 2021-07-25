@@ -1,9 +1,9 @@
 
 .header-dropdown .text-toggle {
-  border: none!important;
+  border: none !important;
 
   .action-title {
-    padding-right: 4px!important;
+    padding-right: 4px !important;
   }
 
   .dropdown-material {
@@ -39,4 +39,13 @@
 .dropdown-material {
   padding: 10px 12px 10px 0;
   color: #333333 !important;
+}
+
+.tasks-list-wrapper {
+  margin-top: 64px;
+  margin-right: 390px;
+}
+
+.tasks-list-button {
+  opacity: 0.3;
 }

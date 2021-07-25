@@ -1,13 +1,12 @@
 import React, { FC } from "react";
 import "./tasks-category.scss";
-import { TodoInput } from "../../storeOwn/types/todoInput";
-import TodosWrapper from "../../storeOwn/todosWrapper";
+import { TodoInput } from "../../todo-input/todoInput";
 
 const TasksCategory: FC = () => {
     return (
         <div>
             <TodoInput />
-            <TodosWrapper />
+            {/*<ToDosWrapper />*/}
         </div>
     );
 };

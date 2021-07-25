@@ -1,10 +1,6 @@
-/* Fonts
-****************************************/
-/* Colors
-*********************************/
 .main-wrapper {
-  width: 1441px;
-  height: 1200px;
+  width: 1920px;
+  height: 1080px;
   font-family: "Open Sans", sans-serif;
   border: solid 1px #cdcdcd;
   white-space: nowrap;

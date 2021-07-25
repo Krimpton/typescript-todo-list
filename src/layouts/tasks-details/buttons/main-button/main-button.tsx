@@ -2,12 +2,13 @@ import React from 'react';
 import "./main-button.scss"
 
 export type ButtonProps = {
-    text?: string;
+    text?: [] | any;
     classNames?: string;
     mIcons?: string;
     action?: (data: any) => void;
     singleButton?: any;
 }
+
 
 
 const Button: React.FC<ButtonProps> = ({text, classNames, children, action  , mIcons, singleButton}) => {

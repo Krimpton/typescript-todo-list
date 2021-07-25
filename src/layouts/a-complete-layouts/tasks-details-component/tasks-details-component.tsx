@@ -6,7 +6,7 @@ import Footer from "../../footer/footer";
 
 const TasksDetailsComponent:FC = () => {
     return (
-        <div>
+        <div className="d-flex justify-content-center align-items-center flex-md-column">
             <Header/>
 
             <TasksDetails/>
