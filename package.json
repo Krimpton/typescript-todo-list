@@ -18,11 +18,13 @@
     "@types/redux-devtools-extension": "^2.13.2",
     "@types/yup": "^0.29.11",
     "bootstrap": "^4.6.0",
-    "formik": "^2.2.6",
+    "formik": "^2.2.9",
     "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-bootstrap": "^1.6.0",
     "react-dom": "^17.0.1",
+    "react-hook-form": "^7.12.1",
+    "react-hooks-useform": "^0.1.86",
     "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
@@ -61,6 +63,7 @@
     ]
   },
   "devDependencies": {
+    "@reduxjs/toolkit": "^1.6.1",
     "prettier": "^2.3.1"
   }
 }

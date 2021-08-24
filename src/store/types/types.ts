@@ -21,3 +21,28 @@ export interface UserAction {
     type: string;
     payload?: any;
 }
+
+// **********************************************************************************
+// TASK BLOCK
+// **********************************************************************************
+
+
+export enum taskBlockTypes {
+    ADD_TASK_BLOCK = "ADD_TASK_BLOCK",
+}
+
+export type TaskBlockState = {
+    block: TaskBlockStateList[] | [];
+};
+
+export type TaskBlockStateList = {
+    id: string;
+    icon: string;
+    title: string;
+    taskLength: number;
+};
+
+export type UserBlockAction = {
+    type: string;
+    payload?: any;
+}

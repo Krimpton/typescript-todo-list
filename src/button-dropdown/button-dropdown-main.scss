@@ -21,7 +21,7 @@
 .text-toggle {
   width: 147px;
   height: 40px;
-  margin: 0 0 0 395px;
+  //margin: 0 0 0 395px;
   border-radius: 3px;
   border: solid 1px #d8d8d8;
   background-color: #ffffff;
@@ -42,10 +42,16 @@
 }
 
 .tasks-list-wrapper {
-  margin-top: 64px;
   margin-right: 390px;
 }
 
 .tasks-list-button {
   opacity: 0.3;
+}
+
+.dashboard-modal-btn {
+  width: 359px;
+  height: 40px;
+  border-radius: 3px;
+  background-color: #ffffff;
 }

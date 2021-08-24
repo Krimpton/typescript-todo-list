@@ -1,6 +1,6 @@
-import {reducer} from "./reducers/reducer";
 import {applyMiddleware, createStore} from "redux";
 import { composeWithDevTools } from 'redux-devtools-extension';
+import {rootReducer} from "./reducers/rootReducer";
 export type ButtonProps = {
     text?: string;
     classNames?: string;
@@ -9,6 +9,6 @@ export type ButtonProps = {
     singleButton?: any;
 }
 
-export const store = createStore(reducer, composeWithDevTools(
+export const store = createStore(rootReducer, composeWithDevTools(
     applyMiddleware(),
 ));

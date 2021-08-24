@@ -1,8 +1,9 @@
-import React, {ChangeEvent, useCallback, useEffect, useState} from "react";
+import React, { ChangeEvent, useCallback, useState } from "react";
 import { taskTypes } from "../store/types/types";
 import { useDispatch } from "react-redux";
 import { StatusTypesEnum } from "../store/constants/constans";
 import { v4 as uuidv4 } from "uuid";
+import "./todoInput.scss";
 
 export const TodoInput: React.FC = () => {
     const dispatch = useDispatch();
@@ -14,8 +15,6 @@ export const TodoInput: React.FC = () => {
     const [status, setStatus] = useState<string>(defaultValue);
 
     const id = uuidv4();
-    // const id = Math.round(Math.random() * 10);
-    // const id = Math.random().toString(36).substr(2, 9);
 
     const expiredAt = "2021-07-20T16:09:00.765Z";
 
@@ -54,13 +53,8 @@ export const TodoInput: React.FC = () => {
         alert("nooo");
     }
 
-
-    useEffect(() => {
-
-    }, [StatusTypesEnum])
-
     return (
-        <div>
+        <div className="input-wrapper d-flex justify-content-center align-items-center flex-column font-weight-bold">
             <div className="mb-3">
                 <p className="mb-1 font-weight-bold">Title:</p>
 
@@ -69,7 +63,7 @@ export const TodoInput: React.FC = () => {
                     onChange={handleTitleChange}
                     onKeyDown={handleKeyPress}
                     type="text"
-                    placeholder="type anything"
+                    placeholder="type anything..."
                 />
             </div>
 
@@ -127,12 +121,6 @@ export const TodoInput: React.FC = () => {
                     </label>
                 </div>
             </div>
-            {/*<Button*/}
-            {/*    text={"Add New"}*/}
-            {/*    singleButton={"material-icons-margin-0"}*/}
-            {/*    classNames={"add-new-button"}*/}
-            {/*    action={handleSubmit}*/}
-            {/*/>*/}
         </div>
     );
 };

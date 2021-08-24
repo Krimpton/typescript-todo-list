@@ -5,9 +5,7 @@ import TasksText from "../a-complete-layouts/tasks-details-component/tasks-text/
 import ModalWindow from "../../components/modal-windows/modal-tasks-datails-delete/modal-window";
 import InputComponent from "../../components/input-component/input-component";
 import { useHistory } from "react-router-dom";
-import { time } from "../../store/reducers/reducer";
-import { useSelector } from "react-redux";
-import { TaskItemType } from "../../store/types/types";
+import { time } from "../../store/reducers/tasks-list-reducer";
 
 export type TasksDetailsProps = {
     active: boolean;
@@ -34,10 +32,9 @@ const TasksDetails: FC = () => {
         history.push("/tasksList");
     };
 
-    const title = useSelector((state: TaskItemType) => state.title);
-
     return (
         <div className="tasks-wrapper">
+
             <ModalWindow active={modalActive2} setActive={setModalActive2}>
                 <div className="edit-wrapper">
                     <div className="edit-header d-flex justify-content-center align-items-center">

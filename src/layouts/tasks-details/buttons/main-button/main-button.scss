@@ -80,18 +80,17 @@
 .cancel-button {
   width: 65px;
   height: 40px;
-  margin: 7px 0 0 16px;
   border: solid 1px #d8d8d8;
   background-color: #ffffff;
   font-size: 14px;
 
   transition: background-color 1s;
+  margin-right: 140px;
 }
 
 .cancel-button .button-text {
   margin: 0 auto;
   color: #333333;
-  padding: 11px 9px 10px 12px;
 }
 
 .cancel-button:hover {
@@ -142,7 +141,7 @@
 }
 
 .add-new-wrapper {
-  margin: 64px 0 0 28px;
+  margin: 0 0 0 28px;
 }
 
 .add-new-button {
@@ -163,50 +162,6 @@
   background-color: #2a2afd;
 }
 
-.pagination-button {
-  width: 32px;
-  height: 32px;
-  padding: 8px 12px 7px;
-  border-radius: 3px;
-  border: solid 1px #d8d8d8;
-  background-color: #ffffff;
-
-  font-size: 14px;
-
-  margin: 16px 8px 16px 395px;
-
-  transition: 1s background-color;
-}
-
-.pagination-button .button-text {
-  color: #333333;
-}
-
-.pagination-button:hover {
-  background-color: #00a5ef;
-}
-
-.pagination-button:nth-child(2) {
-  margin-left: 0;
-}
-
-.pagination-button:nth-child(3) {
-  border: none;
-
-  margin-left: 0;
-}
-
-.pagination-button:nth-child(3):hover {
-
-  background-color: #ffffff;
-  transition: 0s background-color;
-}
-
-.pagination-button:nth-child(4) {
-  margin-left: 0;
-}
-
-
 //************************
 
 .pending-button {
@@ -222,7 +177,7 @@
 .pending-button .button-text {
   padding: 8px 11px 7px;
 
-  font-family: Rubik;
+  font-family: Rubik, serif;
   font-size: 14px;
   color: #333333;
 }
@@ -242,7 +197,7 @@
 .complete-button .button-text {
   padding: 8px 11px 7px;
 
-  font-family: Rubik;
+  font-family: Rubik, serif;
   font-size: 14px;
   color: #333333;
 }
@@ -262,7 +217,7 @@
 .expired-button .button-text {
   padding: 8px 11px 7px;
 
-  font-family: Rubik;
+  font-family: Rubik, serif;
   font-size: 14px;
   color: #333333;
 }
@@ -277,13 +232,12 @@
   background-color: #f8f8f8;
 
   margin: 8px 32px 8px 0;
-  margin-left: 0 !important;
 }
 
 .inactive-button .button-text {
   padding: 8px 11px 7px;
 
-  font-family: Rubik;
+  font-family: Rubik, serif;
   font-size: 14px;
   color: #333333;
 }
@@ -395,4 +349,20 @@
   font-size: 16px;
   background-color: skyblue;
   margin: 25px 0 0 0;
+}
+
+.add-category-button {
+  width: 132px;
+  height: 40px;
+  //margin: 7px 16px 0 160px;
+  //padding: 11px 12px 10px;
+  border-radius: 3px;
+  border: solid 1px #00a5ef;
+  background-color: #00a5ef;
+
+  transition: background-color 1s;
+}
+
+.add-category-button:hover {
+  background-color: #6363ff;
 }

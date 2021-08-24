@@ -46,6 +46,7 @@
 
 .pages {
   margin: 20px 0;
+
   .page, .current-page {
     border: 1px solid gray;
     border-radius: 100%;
@@ -60,6 +61,8 @@
   }
 }
 
-.button-list-wrapper {
-
+.main_content {
+  flex: 1 1 auto;
+  flex-flow: column nowrap;
+  height: 83.3vh;
 }

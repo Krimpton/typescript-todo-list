@@ -1,0 +1,88 @@
+.pagination-container {
+  display: flex;
+  list-style-type: none;
+
+  .pagination-item {
+    width: 32px;
+    height: 32px;
+    border-radius: 3px;
+    border: solid 1px #d8d8d8;
+    background-color: white;
+    color: #333333;
+    padding: 4px 10px 7px;
+    font-size: 14px;
+
+
+    transition: .5s background-color;
+
+    &.dots:hover {
+      background-color: #00a5ef;
+      cursor: default;
+
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+      cursor: pointer;
+    }
+
+    &.selected {
+      background-color: #00a5ef;
+
+    }
+
+    .pagination-item:nth-child(2) {
+      margin-left: 0;
+    }
+
+    .pagination-item:nth-child(3) {
+      border: none;
+
+      margin-left: 0;
+    }
+
+    .pagination-item:nth-child(3):hover {
+
+      background-color: #ffffff;
+      transition: 0s background-color;
+    }
+
+    .pagination-item:nth-child(4) {
+      margin-left: 0;
+    }
+
+    .arrow {
+      &::before {
+        position: relative;
+        content: '';
+        display: inline-block;
+        width: 0.4em;
+        height: 0.4em;
+        border-right: 0.12em solid rgba(0, 0, 0, 0.87);
+        border-top: 0.12em solid rgba(0, 0, 0, 0.87);
+      }
+
+      &.left {
+        transform: rotate(-135deg) translate(0%);
+      }
+
+      &.right {
+        transform: rotate(45deg);
+      }
+    }
+
+    &.disabled {
+      pointer-events: none;
+
+      .arrow::before {
+        border-right: 0.12em solid rgba(0, 0, 0, 0.43);
+        border-top: 0.12em solid rgba(0, 0, 0, 0.43);
+      }
+
+      &:hover {
+        background-color: transparent;
+        cursor: default;
+      }
+    }
+  }
+}

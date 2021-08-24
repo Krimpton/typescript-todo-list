@@ -1,0 +1,112 @@
+
+.dashboard-wrapper {
+  flex: 1 1 auto;
+  flex-flow: column nowrap;
+  height: 83.3vh;
+}
+
+.isModal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(51, 51, 51, 0.6);
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.dashboard-modal {
+  width: 389px;
+  height: 289px;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
+.dashboard-header-text {
+  width: 143px;
+  height: 22px;
+  font-family: OpenSans, serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.category-name-section {
+  margin-left: 14px;
+}
+
+.category-name {
+  width: 71px;
+  height: 13px;
+  font-family: OpenSans, serif;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #333333;
+
+}
+
+.error {
+  content: "⚠";
+  color: red;
+  //margin-bottom: 20px;
+}
+
+
+.category-input {
+}
+
+.category-icon {
+  width: 65px;
+  height: 13px;
+  //margin-top: 30px;
+  font-family: OpenSans, serif;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #333333;
+  font-size: 16px;
+}
+
+//.category-icon-wrapper {
+//  margin-left: 14px;
+//}
+
+//input {
+//  width: 359px;
+//  height: 40px;
+//  margin: 8px 0 8px 1px;
+//  border-radius: 3px;
+//  border: solid 1px #fbe4e7;
+//  background-color: white;
+//
+//  font-size: 1rem;
+//  min-width: 125px;
+//  padding: 0.5rem;
+//  transition: border-color 0.5s ease-out;
+//}
+
+//input:invalid {
+//  background-color: #fbe4e7;
+//}
+
+//input:required:focus:valid {
+//  background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg") no-repeat 95% 50% lightgreen;
+//  background-size: 25px;
+//}
+
+//input:focus:invalid {
+//  background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% #fbe4e7;
+//  background-size: 25px;
+//}

@@ -1,15 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useMemo, useState } from "react";
 import Button from "../layouts/tasks-details/buttons/main-button/main-button";
 import "../layouts/tasks-category/task-category-own/task-category-own.scss";
 
 import "./todosWrapper.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { TaskItemType, TaskState, taskTypes } from "../store/types/types";
-import { time } from "../store/reducers/reducer";
-import {useHistory} from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { taskTypes } from "../store/types/types";
+import { time } from "../store/reducers/tasks-list-reducer";
+import { useHistory } from "react-router-dom";
+import Pagination from "../pagination/pagination";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 
 const ToDosWrapper: React.FC = () => {
-    const status = useSelector((state: TaskItemType) => state.status);
+    const { todos } = useTypedSelector((state) => state.taskList);
+
     const dispatch = useDispatch();
 
     const history = useHistory();
@@ -18,19 +21,22 @@ const ToDosWrapper: React.FC = () => {
         history.push("/tasksDetails");
     };
 
-    useEffect(() => {
-        console.log(status);
-    }, [status]);
-
-    const todos = useSelector((state: TaskState) => state.todos);
-
     const handleDelete = (id) =>
         dispatch({
             type: taskTypes.DELETE_TASK,
             payload: id,
         });
+    const [currentPage, setCurrentPage] = useState(1);
 
-    const todosEverything = todos.map((todo, index) => (
+    let PageSize = 5;
+
+    const currentTableData = useMemo(() => {
+        const firstPageIndex = (currentPage - 1) * PageSize;
+        const lastPageIndex = firstPageIndex + PageSize;
+        return todos.slice(firstPageIndex, lastPageIndex);
+    }, [PageSize, currentPage, todos]);
+
+    const todosEverything = currentTableData.map((todo, index) => (
         <div
             className="todos-name d-flex justify-content-center align-items-center"
             key={todo.id}
@@ -57,13 +63,24 @@ const ToDosWrapper: React.FC = () => {
     ));
 
     return (
-        <div>
+        <div className="d-flex justify-content-center align-items-center">
             {!todos.length ? (
                 <p className="todos-empty d-flex justify-content-center align-items-center">
                     You have’t any created tasks.
                 </p>
             ) : (
-                <div>{todosEverything}</div>
+                <div>
+                    <>{todosEverything}</>
+                    <div className="mt-4">
+                        <Pagination
+                            className="pagination-bar"
+                            currentPage={currentPage}
+                            totalCount={todos.length}
+                            pageSize={PageSize}
+                            onPageChange={(page) => setCurrentPage(page)}
+                        />
+                    </div>
+                </div>
             )}
         </div>
     );

@@ -13,13 +13,9 @@ const Auth: FC = () => {
                         expiredAt: "",
                         description: "",
                     }}
-                    onSubmit={() => {}}
-                >
+                    onSubmit={() => {}}>
                     <Form
-                        className={
-                            "auth-form d-flex justify-content-center align-items-center flex-md-column"
-                        }
-                    >
+                        className={"auth-form d-flex justify-content-center align-items-center flex-md-column"}>
                         <label className={"auth-title"} htmlFor="authInput">
                             Login:
                         </label>

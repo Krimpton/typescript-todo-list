@@ -1,19 +1,13 @@
 @import '../../assets/styles/variables';
 
 .footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 50px;
   width: 100%;
-  padding: 16px 600px 15px;
   margin-top: 20px;
   background-color: $footer_bg_color_gray;
 }
 
 .footer p {
-  display: flex;
-  justify-content: center;
   font-size: $font_size_14;
   color: $dark_gray;
 }
