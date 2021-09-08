@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+}
+
+input:focus, textarea:focus, select:focus, button:focus {
+    outline: none;
+}
+
+body {
+    font-family: "Open-Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333333;
+}

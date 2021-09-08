@@ -1,0 +1,49 @@
+/* Fonts
+****************************************/
+/* Colors
+*********************************/
+.mini-tasks {
+  margin: 0 15px 0 0;
+  width: 207px;
+  height: 61px;
+  padding: 14px 61px 14px 65px;
+  border-radius: 3px;
+  border: solid 1px #d8d8d8;
+  position: relative;
+}
+
+.mini-tasks:last-child {
+  margin: 0;
+}
+
+.mini-tasks span {
+  position: absolute;
+  top: 14px;
+  right: 126px;
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  color: #333333;
+}
+
+.mini-tasks h6 {
+  position: absolute;
+  top: 14px;
+  right: 61px;
+  width: 56px;
+  height: 19px;
+  font-size: 14px;
+  color: #333333;
+}
+
+.mini-tasks p {
+  position: absolute;
+  top: 33px;
+  right: 78px;
+  width: 39px;
+  height: 14px;
+  font-size: 10px;
+  color: #565656;
+}
+
+/*# sourceMappingURL=mini-tasks.css.map */

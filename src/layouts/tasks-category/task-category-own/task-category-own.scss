@@ -1,0 +1,33 @@
+
+//.tasks-bar-list {
+//  max-width: 649px;
+//  height: 48px;
+//  margin: 8px 1px 8px 395px;
+//  padding: 0;
+//  border-radius: 3px;
+//  border: solid 1px #d8d8d8;
+//
+//
+//  display: flex;
+//  justify-content: space-between;
+//}
+//
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  border: solid 1px #d8d8d8;
+  background-color: #ffffff;
+  margin: 14px 0 14px 18px;
+}
+
+.title {
+  width: 125px;
+  height: 19px;
+  margin: 15px 91px 14px 35px;
+  font-family: OpenSans, serif;
+  font-size: 14px;
+
+  color: #00a5ef;
+}

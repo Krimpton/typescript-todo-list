@@ -1,0 +1,22 @@
+@import '../../assets/styles/variables';
+
+.footer {
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  background-color: $footer_bg_color_gray;
+}
+
+.footer p {
+  font-size: $font_size_14;
+  color: $dark_gray;
+}
+
+.footer span {
+  font-weight: $open_sans_semi_bold;
+  color: $blue;
+}
+
+.footer-name {
+  margin-left: 4px;
+}

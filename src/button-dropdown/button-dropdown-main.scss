@@ -1,0 +1,57 @@
+
+.header-dropdown .text-toggle {
+  border: none !important;
+
+  .action-title {
+    padding-right: 4px !important;
+  }
+
+  .dropdown-material {
+    padding-right: 0;
+  }
+}
+
+.disabled-dropdown-item {
+  font-size: 14px;
+  color: rgb(108, 117, 125);
+  font-weight: 300;
+  margin-bottom: 6px;
+}
+
+.text-toggle {
+  width: 147px;
+  height: 40px;
+  //margin: 0 0 0 395px;
+  border-radius: 3px;
+  border: solid 1px #d8d8d8;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.tasks-button {
+  opacity: 0.6;
+}
+
+.action-title {
+  padding: 11px 55px 10px 12px;
+}
+
+.dropdown-material {
+  padding: 10px 12px 10px 0;
+  color: #333333 !important;
+}
+
+.tasks-list-wrapper {
+  margin-right: 390px;
+}
+
+.tasks-list-button {
+  opacity: 0.3;
+}
+
+.dashboard-modal-btn {
+  width: 359px;
+  height: 40px;
+  border-radius: 3px;
+  background-color: #ffffff;
+}

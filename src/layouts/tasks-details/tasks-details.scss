@@ -1,0 +1,156 @@
+
+.tasks-wrapper {
+  width: 650px;
+  height: 517px;
+  margin: 0 645px 34px;
+  padding: 0 0 261px;
+}
+
+.tasks-title {
+  width: 170px;
+  height: 24px;
+  margin: 0 48px 4px 0;
+  font-size: 18px;
+  font-weight: bold;
+
+  color: #333333;
+}
+
+.delete-block-bottom {
+  border-top: solid 1px #d8d8d8;
+}
+
+button {
+  padding: 0 !important;
+}
+
+.delete-title {
+  width: 223px;
+  height: 22px;
+  margin: 16px 0 0 16px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.delete-content {
+  width: 357px;
+  height: 44px;
+  margin: 16px;
+  font-size: 16px;
+  color: #333333;
+}
+
+.tasks-created {
+  width: 218px;
+  height: 19px;
+  margin: 4px 0;
+  font-size: 14px;
+  color: #565656;
+}
+
+.tasks-expired {
+  width: 215px;
+  height: 19px;
+  margin: 4px 3px 0 0;
+  font-size: 14px;
+  color: #565656;
+}
+
+.status-wrapper {
+  display: flex;
+  margin: 16px 0 24px 0;
+}
+
+
+.status-text p {
+  width: 650px;
+  height: 114px;
+  margin: 24px 0 0;
+  font-size: 14px;
+  font-weight: 300;
+  color: #333333;
+
+
+  white-space: pre-wrap;
+}
+
+//EDIT
+//*******************************************************************
+
+.edit-wrapper {
+  width: 391px;
+  height: 426px;
+  background-color: #ffffff;
+  border: solid 1px #d8d8d8;
+  border-top: none;
+}
+
+.edit-header {
+  width: 390px;
+  height: 38px;
+  padding: 8px 0 0 0;
+
+  border-top: solid 1px #d8d8d8;
+  border-left: solid 1px #d8d8d8;
+  border-right: solid 1px #d8d8d8;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  justify-content: center;
+}
+
+.edit-header p {
+  width: 72px;
+  height: 22px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333333;
+  margin-left: 160px;
+  margin-bottom: 20px;
+
+
+}
+
+.edit-header span {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  color: #333333;
+  margin: 3px 14px 11px 125px;
+  padding-right: -220px;
+  cursor: pointer;
+}
+
+.edit-main-content {
+  width: 390px;
+  height: 284px;
+  border: solid 1px #d8d8d8;
+}
+
+.edit-footer {
+  width: 388px;
+  height: 48px;
+
+}
+
+.button-pending {
+  width: 76px;
+  height: 32px;
+  margin: -64px 0 49px 572px;
+  padding: 8px 11px 7px;
+  border-radius: 4px;
+  border: solid 1px #d1ecfa;
+  background-color: #f4fafd;
+}
+
+.button-pending .button-text {
+  width: 54px;
+  height: 17px;
+  font-family: Rubik, serif;
+  font-size: 14px;
+  color: #333333;
+}
+
+.return-button {
+  color: deepskyblue;
+}

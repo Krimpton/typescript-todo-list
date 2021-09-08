@@ -1,0 +1,68 @@
+@import '../../../assets/styles/variables';
+
+.todos-empty {
+  font-size: 14px;
+  color: #333333;
+  padding: 16px 700px 0 0;
+}
+
+//*************************
+//tasks-bar
+//*************************
+
+.tasks-bar {
+  width: 649px;
+  height: 48px;
+  border-radius: 3px;
+  border: solid 1px #d8d8d8;
+}
+
+.tasks-bar p {
+  font-weight: $open_sans_bold;
+  color: #333333;
+  //margin-bottom: 0 !important;
+}
+
+.tasks-bar p:first-child {
+  padding: 25px 159px 14px 62px
+}
+
+.tasks-bar p:nth-child(2) {
+  padding: 25px 11px 14px 0;
+}
+
+.tasks-bar p:last-child {
+  padding: 25px 63px 14px 32px;
+}
+
+.inputTodo {
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  height: 250px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+}
+
+.pages {
+  margin: 20px 0;
+
+  .page, .current-page {
+    border: 1px solid gray;
+    border-radius: 100%;
+    padding: 5px 10px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+
+  .current-page {
+    border: 2px solid gray;
+    font-weight: 700;
+  }
+}
+
+.main_content {
+  flex: 1 1 auto;
+  flex-flow: column nowrap;
+  height: 83.3vh;
+}

@@ -1,15 +1,41 @@
 $publicDir: "../../../public";
 
-// font-families
+/* Fonts
+****************************************/
 
-$openSansBold: "OpenSans-Bold, sans-serif";
+// Font families
+$open_sans: 'Open Sans', sans-serif;
 
-// font-sizes
+// Fonts sizes
+$font_size_10: 10px;
+$font_size_14: 14px;
+$font_size_16: 16px;
+$font_size_18: 18px;
+$font_size_20: 20px;
 
-$fontSize16: 16px;
+// Fonts weights
+$open_sans_light: 300;
+$open_sans_regular: 400;
+$open_sans_semi_bold: 600;
+$open_sans_bold: 700;
 
-// colors
+// Border
+$standard_border: solid 1px;
+$border_color_gray: #cdcdcd;
 
-$blue: #2181ca;
+/* Colors
+*********************************/
+$blue: #00a5ef;
+$white: #ffffff;
+$purple: #623590;
+$dark_gray: #333333;
+$light_gray: #cdcdcd;
 
+// Main content
+$main_tasks_color: #565656;
 
+// Mini tasks
+$mini_tasks_color_border: #d8d8d8;
+
+// Footer
+$footer_bg_color_gray: #f1f1f1;

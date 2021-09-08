@@ -1,0 +1,34 @@
+@import '../../assets/styles/variables';
+
+.mini-tasks {
+  margin: 0 15px 0 0;
+  width: 207px;
+  height: 61px;
+  border-radius: 3px;
+  border: $standard-border $mini_tasks_color_border;
+  cursor: cell;
+}
+
+.mini-tasks:first-child {
+  margin-left: 16px;
+}
+
+.tasks-icons {
+  padding-top: 4px;
+  font-size: 16px;
+  color: #333333 !important;
+}
+
+.tasks-names {
+  font-size: 14px;
+  color: #333333;
+}
+
+.tasks-numbers {
+  font-size: 10px;
+  color: #565656;
+}
+
+.tasks-numbers p {
+  margin: 0 auto;
+}
