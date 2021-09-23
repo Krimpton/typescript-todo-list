@@ -12,204 +12,84 @@ export const initialState: TaskState = {
             title: "Play Rust",
             status: StatusTypesEnum.INACTIVE,
             expiredAt: time,
+            categoryId: 1,
         },
         {
             id: uuidv4(),
             title: "Drink Coffee",
             status: StatusTypesEnum.COMPLETED,
             expiredAt: time,
+            categoryId: 2,
         },
         {
             id: uuidv4(),
             title: "Call Mark",
             status: StatusTypesEnum.EXPIRED,
             expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Drink Water",
-            status: StatusTypesEnum.PENDING,
-            expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Walk",
-            status: StatusTypesEnum.INACTIVE,
-            expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Watch YouTube",
-            status: StatusTypesEnum.INACTIVE,
-            expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Charge phone",
-            status: StatusTypesEnum.INACTIVE,
-            expiredAt: time,
+            categoryId: 2,
         },
         {
             id: uuidv4(),
             title: "Play Rust",
             status: StatusTypesEnum.INACTIVE,
             expiredAt: time,
+            categoryId: 1,
         },
         {
             id: uuidv4(),
             title: "Drink Coffee",
             status: StatusTypesEnum.COMPLETED,
             expiredAt: time,
+            categoryId: 2,
         },
         {
             id: uuidv4(),
             title: "Call Mark",
             status: StatusTypesEnum.EXPIRED,
             expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Drink Water",
-            status: StatusTypesEnum.PENDING,
-            expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Walk",
-            status: StatusTypesEnum.INACTIVE,
-            expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Watch YouTube",
-            status: StatusTypesEnum.INACTIVE,
-            expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Charge phone",
-            status: StatusTypesEnum.INACTIVE,
-            expiredAt: time,
+            categoryId: 2,
         },
         {
             id: uuidv4(),
             title: "Play Rust",
             status: StatusTypesEnum.INACTIVE,
             expiredAt: time,
+            categoryId: 1,
         },
         {
             id: uuidv4(),
             title: "Drink Coffee",
             status: StatusTypesEnum.COMPLETED,
             expiredAt: time,
+            categoryId: 2,
         },
         {
             id: uuidv4(),
             title: "Call Mark",
             status: StatusTypesEnum.EXPIRED,
             expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Drink Water",
-            status: StatusTypesEnum.PENDING,
-            expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Walk",
-            status: StatusTypesEnum.INACTIVE,
-            expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Watch YouTube",
-            status: StatusTypesEnum.INACTIVE,
-            expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Charge phone",
-            status: StatusTypesEnum.INACTIVE,
-            expiredAt: time,
+            categoryId: 2,
         },
         {
             id: uuidv4(),
             title: "Play Rust",
             status: StatusTypesEnum.INACTIVE,
             expiredAt: time,
+            categoryId: 1,
         },
         {
             id: uuidv4(),
             title: "Drink Coffee",
             status: StatusTypesEnum.COMPLETED,
             expiredAt: time,
+            categoryId: 2,
         },
         {
             id: uuidv4(),
             title: "Call Mark",
             status: StatusTypesEnum.EXPIRED,
             expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Drink Water",
-            status: StatusTypesEnum.PENDING,
-            expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Walk",
-            status: StatusTypesEnum.INACTIVE,
-            expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Watch YouTube",
-            status: StatusTypesEnum.INACTIVE,
-            expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Charge phone",
-            status: StatusTypesEnum.INACTIVE,
-            expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Drink Coffee",
-            status: StatusTypesEnum.COMPLETED,
-            expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Call Mark",
-            status: StatusTypesEnum.EXPIRED,
-            expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Drink Water",
-            status: StatusTypesEnum.PENDING,
-            expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Walk",
-            status: StatusTypesEnum.INACTIVE,
-            expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Watch YouTube",
-            status: StatusTypesEnum.INACTIVE,
-            expiredAt: time,
-        },
-        {
-            id: uuidv4(),
-            title: "Charge phone",
-            status: StatusTypesEnum.INACTIVE,
-            expiredAt: time,
+            categoryId: 2,
         },
     ],
 };
@@ -218,14 +98,15 @@ export const tasksListReducer = (state = initialState, action: UserAction): Task
     switch (action.type) {
         case taskTypes.ADD_TASK:
             return { ...state, todos: [...state.todos, action.payload] };
-        // case taskTypes.DELETE_TASK:
-        //     return { ...state, todos: state.todos.filter((todo) => todo.id !== action.payload) };
-        // return {...state, task: state.task.filter(taskText => taskText !== action.payload)};
-        // case taskTypes.EDIT_TASK:
-        //     return {...state, todos: state.todos.filter()};
-        // case taskTypes.EDIT_TASK:
-        //     return {...state, todos: state.todos.filter()};
+        case taskTypes.DELETE_TASK:
+            return { ...state, todos: state.todos.filter((todos) => todos.id !== action.payload) };
+        case taskTypes.EDIT_TASK:
+            return { ...state, todos: state.todos.filter((todos) => todos.id !== action.payload) };
+        case taskTypes.RETURN_FILTERED_TODOS:
+            return { ...state, todos: state.todos.filter((category) => [category.categoryId = action.payload])};
         default:
             return state;
     }
 };
+
+// store.subscribe(() => console.log(store.getState()))

@@ -2,14 +2,12 @@
 .tasks-wrapper {
   width: 650px;
   height: 517px;
-  margin: 0 645px 34px;
-  padding: 0 0 261px;
 }
 
 .tasks-title {
   width: 170px;
   height: 24px;
-  margin: 0 48px 4px 0;
+  margin: 0 0 4px 0;
   font-size: 18px;
   font-weight: bold;
 
@@ -91,11 +89,6 @@ button {
   height: 38px;
   padding: 8px 0 0 0;
 
-  border-top: solid 1px #d8d8d8;
-  border-left: solid 1px #d8d8d8;
-  border-right: solid 1px #d8d8d8;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
   justify-content: center;
 }
 
@@ -124,13 +117,16 @@ button {
 .edit-main-content {
   width: 390px;
   height: 284px;
-  border: solid 1px #d8d8d8;
+  border-top: solid 1px #d8d8d8;
+  padding-left: 13px;
+  padding-top: 16px;
+  margin-bottom: 45px;
 }
 
 .edit-footer {
-  width: 388px;
-  height: 48px;
-
+  border-top: solid 1px #d8d8d8;
+  padding-left: 13px;
+  padding-top: 10px;
 }
 
 .button-pending {
@@ -151,6 +147,129 @@ button {
   color: #333333;
 }
 
-.return-button {
-  color: deepskyblue;
+.isModal-task-details {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(51, 51, 51, 0.6);
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 2s;
+
+}
+
+.isModal-task-details-second {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(51, 51, 51, 0.6);
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 2s;
+}
+
+.task-task-details-second {
+  width: 389px;
+  height: 170px;
+  padding: 16px 0 0;
+  border-radius: 3px;
+  border: solid 1px #d8d8d8;
+  background-color: #fff;
+}
+
+.details-title {
+  width: 223px;
+  height: 22px;
+  padding: 0 150px 16px 16px;
+  font-family: OpenSans, serif;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #333;
+}
+
+.details-subtitle {
+  padding: 16px 0 28px 16px;
+  font-family: OpenSans, serif;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #333;
+
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.button-block {
+  padding-top: 6px;
+  padding-left: 16px;
+}
+
+.task-title {
+  width: 72px;
+  height: 22px;
+  font-family: OpenSans, serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 8px;
+  color: #333;
+}
+
+.name-title {
+  width: 35px;
+  height: 13px;
+  margin: 0 0 13px 0;
+  font-family: OpenSans, serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.expired-title {
+  width: 35px;
+  height: 13px;
+  margin: 12px 0 13px 0;
+  font-family: OpenSans, serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.description-title {
+  width: 35px;
+  height: 13px;
+  margin: 12px 0 13px 0;
+  font-family: OpenSans, serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.description-textarea {
+  width: 359px;
+  height: 100px;
+  border-radius: 3px;
+  border: solid 1px #d8d8d8;
+  background-color: #fff;
+}
+
+.status-wrapper .done{
+  margin-left: 20px;
+}
+
+.details-return {
+  margin-top: 50px;
 }

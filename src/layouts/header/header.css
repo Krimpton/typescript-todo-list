@@ -3,46 +3,46 @@
 /* Colors
 *********************************/
 .block__row {
-  border-right: solid 1px #cdcdcd;
-  width: 1440px;
-  height: 74px;
-  box-shadow: 0 2px 4px 0 rgba(51, 51, 51, 0.15);
-  background-color: #ffffff;
+    border-right: solid 1px #cdcdcd;
+    width: 1440px;
+    height: 74px;
+    box-shadow: 0 2px 4px 0 rgba(51, 51, 51, 0.15);
+    background-color: #ffffff;
 
 }
 
 .block__element_1 h6 {
-  width: 50px;
-  height: 27px;
-  margin: 22px 0 25px 400px;
-  font-size: 20px;
-  font-weight: 700;
-  color: #623590;
+    width: 50px;
+    height: 27px;
+    margin: 22px 0 25px 400px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #623590;
 }
 
 .block__element_2 h6 {
-  width: 100px;
-  height: 22px;
-  margin: 25px 0 27px 406px;
-  font-size: 16px;
-  font-weight: 700;
-  color: #333333;
+    width: 100px;
+    height: 22px;
+    margin: 25px 0 27px 406px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #333333;
 }
 
 .block__element_3 span {
-  margin: 26px 0 28px 4px;
-  font-size: 20px;
-  color: #333333;
+    margin: 26px 0 28px 4px;
+    font-size: 20px;
+    color: #333333;
 }
 
 .block__element_4 img {
-  width: 50px;
-  height: 50px;
-  margin: 12px 400px 12px 13px;
-  padding: 3px;
-  border-radius: 33px;
-  border: solid 1px #cdcdcd;
-  background-color: #ffffff;
+    width: 50px;
+    height: 50px;
+    margin: 12px 400px 12px 13px;
+    padding: 3px;
+    border-radius: 33px;
+    border: solid 1px #cdcdcd;
+    background-color: #ffffff;
 }
 
 /*# sourceMappingURL=header.css.map */

@@ -17,14 +17,16 @@
   margin: 0 16px 0 0;
   border: solid 1px #19bf33;
   background-color: #19bf33;
+  border-radius: 3px;
 
   color: #ffffff;
 
-  transition: background-color 1s;
+  transition: all 0.4s ease-in 0s;
+}
 
-  &:hover {
-    background: greenyellow;
-  }
+.done-button:hover {
+  background-color: #6fd97c;
+  color: black;
 }
 
 //*****************************************
@@ -33,6 +35,7 @@
 .material-icons {
   color: #ffffff;
   font-size: 16px;
+  //padding-left: 11px;
 }
 
 .material-icons-margin-0 {
@@ -53,11 +56,13 @@
   margin: 0 16px 0 0;
   border: solid 1px #00a5ef;
   background-color: #00a5ef;
-
-  transition: background-color 1s;
+  border-radius: 3px;
+  color: white;
+  transition: all 0.4s ease-in 0s;
 
   &:hover {
-    background: blue;
+    background: #6c6cfa;
+    color: black;
   }
 }
 
@@ -69,11 +74,13 @@
   height: 32px;
   border: solid 1px #e3394d;
   background-color: #e3394d;
-
-  transition: background-color 1s;
+  border-radius: 3px;
+  color: white;
+  transition: all 0.4s ease-in 0s;
 
   &:hover {
-    background: red;
+    background: #fc6060;
+    color: black;
   }
 }
 
@@ -84,13 +91,15 @@
   background-color: #ffffff;
   font-size: 14px;
 
-  transition: background-color 1s;
+  transition: all .8s ease-in 0.1s;
   margin-right: 140px;
 }
 
 .cancel-button .button-text {
   margin: 0 auto;
   color: #333333;
+  width: 100px;
+  height: 40px;
 }
 
 .cancel-button:hover {
@@ -100,12 +109,12 @@
 .delete-button {
   width: 65px;
   height: 40px;
-  margin: -40px 0 0 308px;
+  margin: -40px 0 0 293px;
   border-radius: 3px;
   border: solid 1px #00a5ef;
   background-color: #00a5ef;
 
-  transition: background-color 1s;
+  transition: all .8s ease-in 0.1s;
 }
 
 .delete-button .button-text {
@@ -122,12 +131,12 @@
 .save-button {
   width: 53px;
   height: 40px;
-  margin: -40px 0 0 324px;
+  margin: -40px 0 0 306px;
   border-radius: 3px;
   border: solid 1px #00a5ef;
   background-color: #00a5ef;
 
-  transition: 1s background-color;
+  transition: all 1s ease-in 0.1s;
 }
 
 .save-button .button-text {
@@ -141,7 +150,7 @@
 }
 
 .add-new-wrapper {
-  margin: 0 0 0 28px;
+  margin: 0 0 0 -82px;
 }
 
 .add-new-button {
@@ -150,17 +159,26 @@
   border-radius: 3px;
   border: solid 1px #00a5ef;
   background-color: #00a5ef;
-
+  color: white;
   font-size: 14px;
-  color: #ffffff;
 
-  transition: 1s background-color;
-  margin-right: 400px;
+  transition: all .4s ease-in 0.1s;
 }
 
 .add-new-button:hover {
-  background-color: #2a2afd;
+  background-color: white;
+  color: black;
+
+  border: 20px solid black;
 }
+
+
+.add-new-button .button-text {
+  width: 83px;
+  height: 40px;
+  color: white;
+}
+
 
 //************************
 
@@ -170,13 +188,15 @@
   border-radius: 4px;
   border: solid 1px #d1ecfa;
   background-color: #f4fafd;
+}
 
-  margin: 8px 32px 8px 91px;
+.pending-button .button-text:hover{
+  color: #6125a6 !important;
+  border-bottom: 1px solid #6125a6;
+  border-right: 1px solid #6125a6;
 }
 
 .pending-button .button-text {
-  padding: 8px 11px 7px;
-
   font-family: Rubik, serif;
   font-size: 14px;
   color: #333333;
@@ -190,13 +210,15 @@
   border-radius: 4px;
   border: solid 1px #b6f2b2;
   background-color: #f3fcf3;
+}
 
-  margin: 8px 32px 8px 91px;
+.complete-button .button-text:hover{
+  color: #6125a6 !important;
+  border-bottom: 1px solid #6125a6;
+  border-right: 1px solid #6125a6;
 }
 
 .complete-button .button-text {
-  padding: 8px 11px 7px;
-
   font-family: Rubik, serif;
   font-size: 14px;
   color: #333333;
@@ -210,13 +232,15 @@
   border-radius: 4px;
   border: solid 1px #fbe4e7;
   background-color: #fff9fa;
+}
 
-  margin: 8px 32px 8px 91px;
+.expired-button .button-text:hover{
+  color: #6125a6 !important;
+  border-bottom: 1px solid #6125a6;
+  border-right: 1px solid #6125a6;
 }
 
 .expired-button .button-text {
-  padding: 8px 11px 7px;
-
   font-family: Rubik, serif;
   font-size: 14px;
   color: #333333;
@@ -224,19 +248,46 @@
 
 //************************
 
+.all-tasks-button {
+  width: 71px;
+  height: 32px;
+  border-radius: 4px;
+  border: solid 1px #d5fd8d;
+  background-color: #f5fde3;
+
+  transition: all 0.1s ease-in 0s;
+}
+
+.all-tasks-button .button-text:hover{
+  color: #6125a6 !important;
+  border-bottom: 1px solid #6125a6;
+  border-right: 1px solid #6125a6;
+}
+
+.all-tasks-button .button-text {
+  font-family: Rubik, serif;
+  font-size: 14px;
+  color: #333333;
+}
+
+
 .inactive-button {
   width: 71px;
   height: 32px;
   border-radius: 4px;
-  border: solid 1px #f8f8f8;
+  border: solid 1px #efefef;
   background-color: #f8f8f8;
 
-  margin: 8px 32px 8px 0;
+  transition: all 0.1s ease-in 0s;
+}
+
+.inactive-button .button-text:hover{
+  color: #6125a6 !important;
+  border-bottom: 1px solid #6125a6;
+  border-right: 1px solid #6125a6;
 }
 
 .inactive-button .button-text {
-  padding: 8px 11px 7px;
-
   font-family: Rubik, serif;
   font-size: 14px;
   color: #333333;
@@ -254,7 +305,7 @@
 
   margin: 8px 8px 8px 44px;
 
-  transition: 1s background-color;
+  transition: all .4s ease-in 0.1s;
 }
 
 .button-view:hover {
@@ -262,7 +313,8 @@
 }
 
 .button-view .button-text {
-
+  width: 56px;
+  height: 30px;
   font-size: 14px;
   color: #333333;
 }
@@ -275,12 +327,14 @@
   border: solid 1px #00a5ef;
   background-color: #00a5ef;
 
-  transition: 1s background-color;
+  transition: all 0.4s ease 0s;
 
 }
 
 .button-404:hover {
-  background-color: #1d41a7;
+  background-color: #7e639d;
+  border: 2px solid #7e639d;
+  border-radius: 8px;
 }
 
 .button-404 .button-text {
@@ -320,22 +374,28 @@
 .big-button-add {
   width: 207px;
   height: 61px;
-  margin: 15px 444px 0 0;
+  margin: 0 444px 0 0;
   border-radius: 3px;
   border: solid 1px #00a5ef;
   background-color: #ffffff;
 
-
-  transition: background-color 1s;
+  transition: all .4s ease 0.1s;
 }
 
 .big-button-add:hover {
-  background-color: #ccd8e7;
+  border: 31px solid #00a5ef;
 }
 
 .big-button-add .button-text {
   margin-left: 9px;
   color: #00a5ef;
+  width: 100px;
+  height: 60px;
+}
+
+.button-text:hover {
+  color: white;
+  transition: all .4s ease 0.1s;
 }
 
 .big-button-add span {
@@ -347,22 +407,44 @@
   height: 30px;
   color: #ffffff;
   font-size: 16px;
-  background-color: skyblue;
-  margin: 25px 0 0 0;
+  background-color: #7e639d;
+
+  margin: -30px 0 0 0;
+  border: none;
+
+  transition: all .4s ease 0.1s;
+}
+
+.return-button, .button-text {
+  width: 95px;
+  height: 30px;
+  color: white;
+}
+
+.return-button:hover {
+  background-color: #623590;
 }
 
 .add-category-button {
   width: 132px;
   height: 40px;
-  //margin: 7px 16px 0 160px;
-  //padding: 11px 12px 10px;
+  margin-right: 3px;
   border-radius: 3px;
   border: solid 1px #00a5ef;
   background-color: #00a5ef;
 
-  transition: background-color 1s;
+  transition: all .4s ease-in 0s;
 }
 
 .add-category-button:hover {
-  background-color: #6363ff;
+  background-color: white;
+}
+
+.add-category-button .button-text {
+  width: 100px;
+  height: 40px;
+}
+
+.add-category-button .button-text:hover {
+  color: #00a5ef;
 }

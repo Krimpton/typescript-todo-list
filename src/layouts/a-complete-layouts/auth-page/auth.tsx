@@ -2,8 +2,15 @@ import React, { FC } from "react";
 import "./auth.scss";
 import Button from "../../tasks-details/buttons/main-button/main-button";
 import { Field, Form, Formik } from "formik";
+import { useHistory } from "react-router-dom";
 
 const Auth: FC = () => {
+    const history = useHistory();
+
+    const handleClick = () => {
+        history.push("/dashboard");
+    };
+
     return (
         <div className="page-wrapper d-flex justify-content-center">
             <div className="login-wrapper">
@@ -13,9 +20,13 @@ const Auth: FC = () => {
                         expiredAt: "",
                         description: "",
                     }}
-                    onSubmit={() => {}}>
+                    onSubmit={() => {}}
+                >
                     <Form
-                        className={"auth-form d-flex justify-content-center align-items-center flex-md-column"}>
+                        className={
+                            "auth-form d-flex justify-content-center align-items-center flex-md-column"
+                        }
+                    >
                         <label className={"auth-title"} htmlFor="authInput">
                             Login:
                         </label>
@@ -36,6 +47,13 @@ const Auth: FC = () => {
                     singleButton={"material-icons-margin-0"}
                     classNames={"login-button"}
                 />
+                <div className="auth-return-button">
+                    <Button
+                        text="Return"
+                        classNames={"return-button"}
+                        action={handleClick}
+                    />
+                </div>
             </div>
         </div>
     );

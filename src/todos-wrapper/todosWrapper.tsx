@@ -26,6 +26,7 @@ const ToDosWrapper: React.FC = () => {
             type: taskTypes.DELETE_TASK,
             payload: id,
         });
+
     const [currentPage, setCurrentPage] = useState(1);
 
     let PageSize = 5;
@@ -36,20 +37,33 @@ const ToDosWrapper: React.FC = () => {
         return todos.slice(firstPageIndex, lastPageIndex);
     }, [PageSize, currentPage, todos]);
 
-    const todosEverything = currentTableData.map((todo, index) => (
+    const todosStatusList = todos.map((item, index) => (
         <div
-            className="todos-name d-flex justify-content-center align-items-center"
-            key={todo.id}
-            onClick={() => handleDelete(todo.id)}
+            className="status-type d-flex justify-content-center flex-column align-items-center"
+            key={index}
         >
+            {item.status[1]}
+        </div>
+    ));
+
+    const todosEverything = currentTableData.map((todo, index) => (
+        <div className="todos-name d-flex justify-content-center align-items-center" key={todo.id}>
             <input type="checkbox" name="checkbox" className="check" />
             <div className="title">{todo.title}</div>
-            <Button
-                key={todo.id}
-                text={todo.status}
-                singleButton={"material-icons-margin-0"}
-                classNames={"inactive-button"}
-            />
+            <div className="mr-3">
+                <Button
+                    key={todo.id}
+                    text={todo.status}
+                    singleButton={"material-icons-margin-0"}
+                    classNames={"complete-button"}
+                />
+            </div>
+            {/*<div className={StatusTypesEnum.EXPIRED ? "expired" : ""}>*/}
+            {/*  {todo.status}*/}
+            {/*</div>*/}
+            {/*{todosStatusList}*/}
+            {/*  <TodosStatus />*/}
+
             <div key={index} className="date d-flex justify-content-center align-items-center">
                 <p>{time}</p>
                 <Button
