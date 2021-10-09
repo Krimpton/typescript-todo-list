@@ -57,14 +57,13 @@ button {
 
 .status-wrapper {
   display: flex;
-  margin: 16px 0 24px 0;
+  margin: 10px 0;
 }
 
 
 .status-text p {
   width: 650px;
-  height: 114px;
-  margin: 24px 0 0;
+  height: 84px;
   font-size: 14px;
   font-weight: 300;
   color: #333333;
@@ -270,6 +269,7 @@ button {
   margin-left: 20px;
 }
 
-.details-return {
-  margin-top: 50px;
+.button-status {
+  margin-top: -65px;
+  margin-bottom: 45px;
 }

@@ -5,12 +5,18 @@ import Footer from "../../footer/footer";
 import TasksInfo from "../../tasks-info/tasks-info";
 import Button from "../../tasks-details/buttons/main-button/main-button";
 import { useDispatch } from "react-redux";
-import { taskBlockTypes, taskTypes } from "../../../store/types/types";
+import { initialCategory, taskBlockTypes, taskTypes } from "../../../store/types/types";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { IconsTypesEnum } from "../../../store/constants/constans";
 import { useHistory } from "react-router-dom";
+
+export interface useValue {
+    categoryId: number;
+    setCategoryId: any;
+}
+
 
 const DashboardComponent: FC = () => {
     const { block } = useTypedSelector((state) => state.taskBlock);
@@ -19,8 +25,9 @@ const DashboardComponent: FC = () => {
 
     const [id, setId] = useState<number>(uuidv4());
 
-    const initialCategory = 1;
-    const [categoryIdPP, setCategoryId] = useState<number>(initialCategory);
+    const [categoryId, setCategoryId] = useState<useValue | any>(4);
+
+    console.log(categoryId);
 
     const taskLength = block.length;
 
@@ -45,8 +52,6 @@ const DashboardComponent: FC = () => {
         console.log(data);
     };
 
-    console.log(watch("category"));
-
     const dispatch = useDispatch();
 
     const handleDashboardSubmit = (e) => {
@@ -58,8 +63,10 @@ const DashboardComponent: FC = () => {
                     icon,
                     title,
                     taskLength,
+                    categoryId,
                 },
             });
+            setCategoryId(categoryId + 1);
             setTitle("");
         }
     };
@@ -91,32 +98,30 @@ const DashboardComponent: FC = () => {
 
     const [icon, setIcon] = useState<string>(defaultValue);
 
-    const handleCategoryId = () => {
-        history.push("/tasksList")
+    const handleCategoryId = (categoryId) => {
+        history.push("/tasksList");
         dispatch({
             type: taskTypes.RETURN_FILTERED_TODOS,
-            payload: {
-                categoryIdPP,
-            },
+            payload: { categoryId },
         });
+        console.log(categoryId);
     };
-    console.log(todos);
 
     // const handleCategoryId = todos.filter((todos) => (todos.categoryId = 1));
     // const handleCategoryId = console.log("d")
 
     useEffect(() => {
-        console.log(categoryIdPP);
+        console.log(categoryId);
     }, []);
 
     const blockItems = block.map((item, index) => (
-        <div key={index} className="mini-tasks" onClick={handleCategoryId}>
+        <div key={index} className="mini-tasks" onClick={() => handleCategoryId(item.categoryId)}>
             <div className="d-flex justify-content-center align-items-center flex-md-row">
                 <span className="material-icons tasks-icons second-item">{item.icon}</span>
                 <div className="second-item">{item.title}</div>
             </div>
             <div className="third-item d-flex justify-content-center align-items-center">
-                {block.length} tasks
+                {item.categoryId} tasks
             </div>
         </div>
     ));

@@ -3,7 +3,7 @@
 .todos-empty {
   font-size: 14px;
   color: #333333;
-  padding: 16px 700px 0 0;
+  padding: 16px 455px 0 0;
 }
 
 //*************************
@@ -156,26 +156,30 @@
   background-color: #54c4f8;
 }
 
+.tasks-group-list {
+  margin-bottom: 20px !important;
+}
+
 .button-group {
   width: 390px;
-  height: 40px;
-  margin-top: -70px;
-  margin-left: -270px;
+  height: 35px;
+  margin-left: 320px;
 }
 
 .general-checkbox {
-  width: 15px !important ;
-  height: 15px !important;
+  width: 19px !important;
+  height: 19px !important;
+  margin-left: 21px !important;
 }
 
 .block-name {
-  margin-left: 33px;
+  margin-left: 75px;
 }
 
 .block-status {
-  margin-left: 95px;
+  margin-left: 128px;
 }
 
 .block-expired {
-  margin-left: 53px;
+  margin-left: 32px;
 }

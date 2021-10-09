@@ -1,4 +1,5 @@
 import { IconsTypesEnum, StatusTypesEnum } from "../constants/constans";
+import { useState } from "react";
 
 // **********************************************************************************
 // TASK LIST REDUCER
@@ -8,7 +9,10 @@ export enum taskTypes {
     ADD_TASK = "ADD_TASK",
     DELETE_TASK = "DELETE_TASK",
     EDIT_TASK = "EDIT_TASK",
+    FILTER_STATUS_FILTER = "FILTER_STATUS_FILTER",
     RETURN_FILTERED_TODOS = "RETURN_FILTERED_TODOS",
+    RETURN_FILTERED_TASKS = "RETURN_FILTERED_TASKS",
+    SELECT_TASK = "SELECT_TASK",
 }
 
 export interface TaskState {
@@ -16,17 +20,21 @@ export interface TaskState {
 }
 
 export type TaskItemType = {
-    id?: number;
+    id: number;
     title?: string;
     status?: StatusTypesEnum;
     expiredAt?: string;
-    categoryId?: number
+    categoryId?: number | undefined;
+    taskNumber: number;
+    description: string;
 };
 
 export interface UserAction {
     type: string;
-    payload?: any;
+    payload: any;
 }
+
+export const initialCategory = 4;
 
 // **********************************************************************************
 // TASK BLOCK REDUCER
@@ -44,7 +52,7 @@ export type TaskBlockStateList = {
     id: string;
     icon: IconsTypesEnum;
     title: string;
-    categoryBlockId: number;
+    categoryId: number;
     taskLength: number;
 };
 

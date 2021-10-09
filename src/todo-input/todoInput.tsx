@@ -1,10 +1,11 @@
 import React, { ChangeEvent, useCallback, useState } from "react";
-import { taskTypes } from "../store/types/types";
+import { initialCategory, taskTypes } from "../store/types/types";
 import { useDispatch } from "react-redux";
 import { StatusTypesEnum } from "../store/constants/constans";
 import { v4 as uuidv4 } from "uuid";
 import "./todoInput.scss";
 import Button from "../layouts/tasks-details/buttons/main-button/main-button";
+import { useValue } from "../layouts/a-complete-layouts/dashboard-component/dashboard-component";
 
 export const TodoInput: React.FC = () => {
     const dispatch = useDispatch();
@@ -14,6 +15,12 @@ export const TodoInput: React.FC = () => {
     const [title, setTitle] = useState<string>("");
 
     const [status, setStatus] = useState<string>(defaultValue);
+
+    const [categoryId, setCategoryId] = useState<useValue | any>(1)
+
+    console.log(categoryId)
+
+    const [taskNumber, setTaskNumber] = useState<number>(7)
 
     const id = uuidv4();
 
@@ -38,9 +45,13 @@ export const TodoInput: React.FC = () => {
                     title,
                     status,
                     expiredAt,
+                    categoryId,
+                    taskNumber,
                 },
             });
             setTitle("");
+            setTaskNumber( taskNumber + 1)
+            setCategoryId(categoryId + 1)
         }
     };
 

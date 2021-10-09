@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { ChangeEvent, useCallback, useMemo, useState } from "react";
 import Button from "../layouts/tasks-details/buttons/main-button/main-button";
 import "../layouts/tasks-category/task-category-own/task-category-own.scss";
 
@@ -9,6 +9,8 @@ import { time } from "../store/reducers/tasks-list-reducer";
 import { useHistory } from "react-router-dom";
 import Pagination from "../pagination/pagination";
 import { useTypedSelector } from "../hooks/useTypedSelector";
+import { StatusTypesEnum } from "../store/constants/constans";
+import TodosStatus from "../todos-status/todos-status";
 
 const ToDosWrapper: React.FC = () => {
     const { todos } = useTypedSelector((state) => state.taskList);
@@ -17,14 +19,32 @@ const ToDosWrapper: React.FC = () => {
 
     const history = useHistory();
 
-    const handleClickTasks = () => {
-        history.push("/tasksDetails");
+    // const handleDelete = (item) =>
+    //     dispatch({
+    //         type: taskTypes.DELETE_TASK,
+    //         payload: item,
+    //     });
+
+    const [tasks, setTasks] = useState(todos);
+
+    const handleDelete = (id) => {
+        const remainingTasks = tasks.filter((task) => id !== task.id);
+        setTasks(remainingTasks);
     };
 
-    const handleDelete = (id) =>
+    // const removeTodo = (id: any) => {
+    //     setTasks(tasks.filter((todos) => todos.id !== id));
+    //     console.log(id);
+    // };
+    // const removeTodoRedux = (id: any) => {
+    //     dispatch(taskTypes.DELETE_TASK({id}))
+    //     console.log(id)
+    // }
+
+    const removeTodo = (id) =>
         dispatch({
             type: taskTypes.DELETE_TASK,
-            payload: id,
+            payload: { id },
         });
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -37,32 +57,64 @@ const ToDosWrapper: React.FC = () => {
         return todos.slice(firstPageIndex, lastPageIndex);
     }, [PageSize, currentPage, todos]);
 
-    const todosStatusList = todos.map((item, index) => (
-        <div
-            className="status-type d-flex justify-content-center flex-column align-items-center"
-            key={index}
-        >
-            {item.status[1]}
-        </div>
-    ));
+    // const todosStatusList = todos.map((item, index) => (
+    //     <div
+    //         className="status-type d-flex justify-content-center flex-column align-items-center"
+    //         key={index}
+    //     >
+    //         {item.status[1]}
+    //     </div>
+    // ));
+
+    const handleClickTasks = (taskNumber) => {
+        history.push("/tasksDetails");
+      dispatch({
+        type: taskTypes.RETURN_FILTERED_TASKS,
+        payload: {taskNumber},
+      });
+      console.log(taskNumber);
+    };
+
+    const [checkboxValue, setCheckboxValue] = useState(false);
+
+    if (checkboxValue) {
+      console.log("yo")
+    }
+
+
+
+  const checkboxHandler = (id) => {
+      dispatch({
+        type: taskTypes.SELECT_TASK,
+        payload: {id}
+      })
+    console.log(id)
+  }
 
     const todosEverything = currentTableData.map((todo, index) => (
         <div className="todos-name d-flex justify-content-center align-items-center" key={todo.id}>
-            <input type="checkbox" name="checkbox" className="check" />
+            <input
+                type="checkbox"
+                name="checkbox"
+                // checked={checkboxValue}
+                onChange={() => {setCheckboxValue(!checkboxValue)}}
+                className="check"
+                onClick={() => checkboxHandler(todo.id)}
+                // onClick={() => removeTodo(todo.id)}
+            />
             <div className="title">{todo.title}</div>
             <div className="mr-3">
                 <Button
                     key={todo.id}
                     text={todo.status}
                     singleButton={"material-icons-margin-0"}
-                    classNames={"complete-button"}
+                    classNames={todo.status}
                 />
             </div>
             {/*<div className={StatusTypesEnum.EXPIRED ? "expired" : ""}>*/}
             {/*  {todo.status}*/}
             {/*</div>*/}
-            {/*{todosStatusList}*/}
-            {/*  <TodosStatus />*/}
+              {/*<TodosStatus />*/}
 
             <div key={index} className="date d-flex justify-content-center align-items-center">
                 <p>{time}</p>
@@ -70,7 +122,7 @@ const ToDosWrapper: React.FC = () => {
                     text={"View"}
                     singleButton={"material-icons-margin-0"}
                     classNames={"button-view"}
-                    action={handleClickTasks}
+                    action={() => handleClickTasks(todo.taskNumber)}
                 />
             </div>
         </div>

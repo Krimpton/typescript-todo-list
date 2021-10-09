@@ -8,30 +8,27 @@ export const initialState: TaskBlockState = {
             id: uuidv4(),
             icon: IconsTypesEnum.LIST,
             title: "All tasks",
-            categoryBlockId: 1,
+            categoryId: 1,
             taskLength: 50,
         },
         {
             id: uuidv4(),
             icon: IconsTypesEnum.PAID,
             title: "Rust",
-            categoryBlockId: 2,
+            categoryId: 2,
             taskLength: 21,
         },
         {
             id: uuidv4(),
             icon: IconsTypesEnum.SAVINGS,
             title: "Supermarket",
-            categoryBlockId: 3,
+            categoryId: 3,
             taskLength: 21,
         },
     ],
 };
 
-export const tasksBlockReducer = (
-    state = initialState,
-    action: UserBlockAction,
-): TaskBlockState => {
+export const tasksBlockReducer = (state = initialState, action: UserBlockAction): TaskBlockState => {
     switch (action.type) {
         case taskBlockTypes.ADD_TASK_BLOCK:
             return { ...state, block: [...state.block, action.payload] };

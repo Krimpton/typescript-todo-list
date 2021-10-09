@@ -150,7 +150,7 @@
 }
 
 .add-new-wrapper {
-  margin: 0 0 0 -82px;
+  margin: 0 0 0 35px;
 }
 
 .add-new-button {
@@ -182,21 +182,21 @@
 
 //************************
 
-.pending-button {
-  width: 76px;
+.Pending {
+  width: 72px;
   height: 32px;
   border-radius: 4px;
   border: solid 1px #d1ecfa;
   background-color: #f4fafd;
 }
 
-.pending-button .button-text:hover{
+.Pending .button-text:hover{
   color: #6125a6 !important;
   border-bottom: 1px solid #6125a6;
   border-right: 1px solid #6125a6;
 }
 
-.pending-button .button-text {
+.Pending .button-text {
   font-family: Rubik, serif;
   font-size: 14px;
   color: #333333;
@@ -204,21 +204,21 @@
 
 //************************
 
-.complete-button {
-  width: 93px;
+.Completed {
+  width: 72px;
   height: 32px;
   border-radius: 4px;
   border: solid 1px #b6f2b2;
   background-color: #f3fcf3;
 }
 
-.complete-button .button-text:hover{
+.Completed .button-text:hover{
   color: #6125a6 !important;
   border-bottom: 1px solid #6125a6;
   border-right: 1px solid #6125a6;
 }
 
-.complete-button .button-text {
+.Completed .button-text {
   font-family: Rubik, serif;
   font-size: 14px;
   color: #333333;
@@ -226,21 +226,21 @@
 
 //************************
 
-.expired-button {
-  width: 71px;
+.Expired {
+  width: 72px;
   height: 32px;
   border-radius: 4px;
   border: solid 1px #fbe4e7;
   background-color: #fff9fa;
 }
 
-.expired-button .button-text:hover{
+.Expired .button-text:hover{
   color: #6125a6 !important;
   border-bottom: 1px solid #6125a6;
   border-right: 1px solid #6125a6;
 }
 
-.expired-button .button-text {
+.Expired .button-text {
   font-family: Rubik, serif;
   font-size: 14px;
   color: #333333;
@@ -248,8 +248,8 @@
 
 //************************
 
-.all-tasks-button {
-  width: 71px;
+.All {
+  width: 72px;
   height: 32px;
   border-radius: 4px;
   border: solid 1px #d5fd8d;
@@ -258,20 +258,20 @@
   transition: all 0.1s ease-in 0s;
 }
 
-.all-tasks-button .button-text:hover{
+.All .button-text:hover{
   color: #6125a6 !important;
   border-bottom: 1px solid #6125a6;
   border-right: 1px solid #6125a6;
 }
 
-.all-tasks-button .button-text {
+.All .button-text {
   font-family: Rubik, serif;
   font-size: 14px;
   color: #333333;
 }
 
 
-.inactive-button {
+.Inactive {
   width: 71px;
   height: 32px;
   border-radius: 4px;
@@ -281,13 +281,13 @@
   transition: all 0.1s ease-in 0s;
 }
 
-.inactive-button .button-text:hover{
+.Inactive .button-text:hover{
   color: #6125a6 !important;
   border-bottom: 1px solid #6125a6;
   border-right: 1px solid #6125a6;
 }
 
-.inactive-button .button-text {
+.Inactive .button-text {
   font-family: Rubik, serif;
   font-size: 14px;
   color: #333333;

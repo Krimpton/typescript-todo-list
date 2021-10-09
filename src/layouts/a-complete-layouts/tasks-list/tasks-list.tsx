@@ -12,6 +12,9 @@ import {
     IconsTypesEnum,
     StatusTypesEnum,
 } from "../../../store/constants/constans";
+import { useDispatch } from "react-redux";
+import { taskTypes } from "../../../store/types/types";
+import { useHistory } from "react-router-dom";
 
 const TasksList: FC = () => {
     const { todos } = useTypedSelector((state) => state.taskList);
@@ -25,6 +28,12 @@ const TasksList: FC = () => {
     const [isActive, setIsActive] = useState(false);
 
     const [icon, setIcon] = useState<string>(defaultValue);
+
+    const [status, setStatus] = useState();
+
+    const dispatch = useDispatch();
+
+    const history = useHistory();
 
     const options = [
         DashboardActionList.DONE,
@@ -40,18 +49,34 @@ const TasksList: FC = () => {
 
     const [filtered, setFiltered] = useState<any>(filteredDefaultValue);
 
-    const todoFilter = (StatusTypesEnum) => {
-        if (StatusTypesEnum === StatusTypesEnum.INACTIVE) {
-            setFiltered(StatusTypesEnum.INACTIVE);
-        } else {
-            let newStatusTodo = [...todos].filter(
-                (item) => item.status === StatusTypesEnum.COMPLETED,
-            );
-            setFiltered(newStatusTodo);
-        }
+    const todoStatusFilter = (status) => {
+        dispatch({
+            type: taskTypes.FILTER_STATUS_FILTER,
+            payload: { status },
+        });
+        console.log(status);
     };
 
-    console.log(filtered);
+    // const [isCheckbox, setIsCheckbox] = useState<string | number | readonly string[] | undefined>(false );
+    // console.log(isCheckbox);
+
+    // const handleClick = () => {
+    //     setIsCheckbox(!isCheckbox);
+    // };
+
+    // const handleChange = (event) => {
+    //     setIsCheckbox(event.value);
+    // };
+
+    const [checkboxValue, setCheckboxValue] = useState(false);
+
+    if (checkboxValue) {
+        console.log("yo");
+    }
+
+    const dropdownHandler = () => {
+        history.push("/tasksDetails")
+    }
 
     return (
         <div>
@@ -63,9 +88,43 @@ const TasksList: FC = () => {
                     <TasksInfo tasksNumber={todos.length} tasksName={"Completed tasks"} />
                 </div>
 
+                <div className="d-flex justify-content-center align-items-center">
+                    <div className="button-group d-flex">
+                        <Button
+                            text={"All tasks"}
+                            singleButton={"material-icons-margin-0"}
+                            classNames={"All"}
+                            action={() => todoStatusFilter(StatusTypesEnum.ALL)}
+                        />
+                        <Button
+                            text={"Inactive"}
+                            singleButton={"material-icons-margin-0"}
+                            classNames={"Inactive"}
+                            action={() => todoStatusFilter(StatusTypesEnum.INACTIVE)}
+                        />
+                        <Button
+                            text={"Completed"}
+                            singleButton={"material-icons-margin-0"}
+                            classNames={"Completed"}
+                            action={() => todoStatusFilter(StatusTypesEnum.COMPLETED)}
+                        />
+                        <Button
+                            text={"Expired"}
+                            singleButton={"material-icons-margin-0"}
+                            classNames={"Expired"}
+                            action={() => todoStatusFilter(StatusTypesEnum.EXPIRED)}
+                        />
+                        <Button
+                            text={"Pending"}
+                            singleButton={"material-icons-margin-0"}
+                            classNames={"Pending"}
+                            action={() => todoStatusFilter(StatusTypesEnum.PENDING)}
+                        />
+                    </div>
+                </div>
+
                 <div className="tasks-bar-wrapper d-flex justify-content-center align-items-center">
                     <div className="tasks-bar d-flex justify-content-start align-items-center">
-                        <input type="checkbox" className="general-checkbox"/>
                         <p className="block-name">Name</p>
                         <p className="block-status">Status</p>
                         <p className="block-expired">Expired at</p>
@@ -95,9 +154,11 @@ const TasksList: FC = () => {
                                             <div
                                                 key={index}
                                                 onClick={(e) => {
+                                                    dropdownHandler();
                                                     setSelected(option);
                                                     setIsActive(false);
                                                     setIcon(option);
+
                                                 }}
                                                 className="dropdown-item-task-list"
                                             >
@@ -108,39 +169,6 @@ const TasksList: FC = () => {
                                 )}
                             </div>
                         </div>
-                    </div>
-
-                    <div className="button-group d-flex justify-content-center align-items-center">
-                        <Button
-                            text={"All tasks"}
-                            singleButton={"material-icons-margin-0"}
-                            classNames={"all-tasks-button"}
-                            action={() => todoFilter(StatusTypesEnum.ALL)}
-                        />
-                        <Button
-                            text={"Inactive"}
-                            singleButton={"material-icons-margin-0"}
-                            classNames={"inactive-button"}
-                            action={() => todoFilter(StatusTypesEnum.COMPLETED)}
-                        />
-                        <Button
-                            text={"Completed"}
-                            singleButton={"material-icons-margin-0"}
-                            classNames={"complete-button"}
-                            action={() => todoFilter(StatusTypesEnum.INACTIVE)}
-                        />
-                        <Button
-                            text={"Expired"}
-                            singleButton={"material-icons-margin-0"}
-                            classNames={"expired-button"}
-                            action={() => setIsOpen((prev) => !prev)}
-                        />
-                        <Button
-                            text={"Pending"}
-                            singleButton={"material-icons-margin-0"}
-                            classNames={"pending-button"}
-                            action={() => setIsOpen((prev) => !prev)}
-                        />
                     </div>
 
                     <div className="add-new-wrapper">
