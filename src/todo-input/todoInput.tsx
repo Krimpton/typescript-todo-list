@@ -5,7 +5,7 @@ import { StatusTypesEnum } from "../store/constants/constans";
 import { v4 as uuidv4 } from "uuid";
 import "./todoInput.scss";
 import Button from "../layouts/tasks-details/buttons/main-button/main-button";
-import { useValue } from "../layouts/a-complete-layouts/dashboard-component/dashboard-component";
+import { useValue, valueCategory } from "../layouts/a-complete-layouts/dashboard-component/dashboard-component";
 
 export const TodoInput: React.FC = () => {
     const dispatch = useDispatch();
@@ -16,9 +16,9 @@ export const TodoInput: React.FC = () => {
 
     const [status, setStatus] = useState<string>(defaultValue);
 
-    const [categoryId, setCategoryId] = useState<useValue | any>(1)
+    const [categoryId, setCategoryId] = useState<useValue | any>(0)
 
-    console.log(categoryId)
+    console.log(valueCategory)
 
     const [taskNumber, setTaskNumber] = useState<number>(7)
 
@@ -51,7 +51,8 @@ export const TodoInput: React.FC = () => {
             });
             setTitle("");
             setTaskNumber( taskNumber + 1)
-            setCategoryId(categoryId + 1)
+            setCategoryId( categoryId + 1)
+
         }
     };
 

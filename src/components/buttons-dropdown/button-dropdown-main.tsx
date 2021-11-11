@@ -3,12 +3,11 @@ import "./button-dropdown-main.scss";
 
 import { ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle } from "reactstrap";
 import { useHistory } from "react-router-dom";
-// @ts-ignore
 import ruster from "../../assets/photos/ruster.jpg";
+import { useDispatch } from "react-redux";
+import { UserAuthActionTypes } from "../../store/types/types";
 
 export type iProps = {
-    value?: any;
-    action?: (data: any) => void;
     classNames?: string;
     iName?: string;
     iIcons?: string;
@@ -17,43 +16,41 @@ export type iProps = {
     action0?: string;
     action1?: string;
     action2?: string;
-    action3?: string;
-    action4?: string;
 };
 
 const ButtonDropdownMain: React.FC<iProps> = ({
-    value,
-    action,
     classNames,
     iName,
     iIcons,
     action0,
-    action1,
-    action2,
-    action3,
-    action4,
+    action1, action2,
     actionName,
 }) => {
     const [dropdownOpen, setOpen] = useState<boolean>(false);
 
     const toggle = () => setOpen(!dropdownOpen);
 
+    const dispatch = useDispatch();
+
     const history = useHistory();
 
-    const handleClickDashboard = () => {
-        history.push("/dashboard");
+    const handleLogin = () => {
+        history.push("/login");
     };
-    const handleClickTasksList = () => {
-        history.push("/tasksList");
-    };
-    const handleClickTasksDetails = () => {
-        history.push("/tasksDetails");
-    };
-    const handleClickAuth = () => {
-        history.push("/auth");
-    };
-    const handleClickPageError = () => {
-        history.push("/pageError");
+
+    const dashboardRedirect = () => {
+        history.push("/dashboard")
+    }
+
+    const handleLogout = () => {
+        dispatch({
+            type: UserAuthActionTypes.REMOVE_USER,
+            payload: {
+                email: null,
+                id: null,
+                token: null,
+            }});
+        history.push("/login")
     };
 
     return (
@@ -67,40 +64,17 @@ const ButtonDropdownMain: React.FC<iProps> = ({
                 <div className="dropdown-items">
                     <DropdownItem
                         className="disabled-dropdown-item d-flex justify-content-center align-items-center"
-                        disabled
-                    >
-                        {actionName}
-                    </DropdownItem>
+                       disabled >{actionName}</DropdownItem>
+                    <DropdownItem
+                      className="dropdown-item d-flex justify-content-center align-items-center"
+                      onClick={dashboardRedirect}>{action2}</DropdownItem>
                     <DropdownItem
                         className="dropdown-item d-flex justify-content-center align-items-center"
-                        onClick={handleClickDashboard}
-                    >
-                        {action0}
-                    </DropdownItem>
+                        onClick={handleLogin}>{action0}</DropdownItem>
                     <DropdownItem
                         className="dropdown-item d-flex justify-content-center align-items-center"
-                        onClick={handleClickTasksList}
-                    >
-                        {action1}
-                    </DropdownItem>
-                    <DropdownItem
-                        className="dropdown-item d-flex justify-content-center align-items-center"
-                        onClick={handleClickTasksDetails}
-                    >
-                        {action2}
-                    </DropdownItem>
-                    <DropdownItem
-                        className="dropdown-item d-flex justify-content-center align-items-center"
-                        onClick={handleClickAuth}
-                    >
-                        {action3}
-                    </DropdownItem>
-                    <DropdownItem
-                        className="dropdown-item d-flex justify-content-center align-items-center"
-                        onClick={handleClickPageError}
-                    >
-                        {action4}
-                    </DropdownItem>
+                        onClick={handleLogout}>{action1}</DropdownItem>
+
                 </div>
             </DropdownMenu>
             <img className="photo-ruster" src={ruster} alt="ruster" onClick={toggle} />

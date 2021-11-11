@@ -10,11 +10,16 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { IconsTypesEnum } from "../../../store/constants/constans";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
+import { useAuth } from "../../../hooks/use-auth";
 
 export interface useValue {
     categoryId: number;
-    setCategoryId: any;
+    setCategoryId?: any;
+}
+
+export const valueCategory: useValue = {
+    categoryId: 4,
 }
 
 
@@ -27,7 +32,9 @@ const DashboardComponent: FC = () => {
 
     const [categoryId, setCategoryId] = useState<useValue | any>(4);
 
-    console.log(categoryId);
+    const [globalId, setGlobalId] = useState<number>(0)
+
+    console.log(globalId)
 
     const taskLength = block.length;
 
@@ -64,10 +71,16 @@ const DashboardComponent: FC = () => {
                     title,
                     taskLength,
                     categoryId,
+                    globalId,
                 },
             });
             setCategoryId(categoryId + 1);
             setTitle("");
+
+            setGlobalId(categoryId);
+        }
+        if (categoryId === globalId) {
+            return;
         }
     };
 
@@ -99,12 +112,16 @@ const DashboardComponent: FC = () => {
     const [icon, setIcon] = useState<string>(defaultValue);
 
     const handleCategoryId = (categoryId) => {
-        history.push("/tasksList");
+        history.push(`/tasksList/${categoryId}`)
+
         dispatch({
             type: taskTypes.RETURN_FILTERED_TODOS,
-            payload: { categoryId },
+            payload: { categoryId, globalId }
         });
-        console.log(categoryId);
+
+        if (categoryId) {
+            return console.log(setGlobalId(categoryId))
+        }
     };
 
     // const handleCategoryId = todos.filter((todos) => (todos.categoryId = 1));
@@ -126,7 +143,9 @@ const DashboardComponent: FC = () => {
         </div>
     ));
 
-    return (
+    const {isAuth, email} = useAuth();
+
+    return isAuth ? (
         <>
             {isOpen && (
                 <div className="isModal-dashboard" onClick={() => setIsOpen(false)}>
@@ -231,6 +250,8 @@ const DashboardComponent: FC = () => {
                 <Footer />
             </div>
         </>
+    ) : (
+      <Redirect to={"/login"} />
     );
 };
 

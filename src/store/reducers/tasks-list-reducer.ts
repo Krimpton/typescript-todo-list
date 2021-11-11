@@ -71,7 +71,16 @@ export const tasksListReducer = (state = initialState, action: UserAction): Task
         case taskTypes.DELETE_TASK:
             return { ...state, todos: state.todos.filter((todo) => todo.id !== action.payload.id) };
         case taskTypes.EDIT_TASK:
-            // return { ...state, todos: [...state.todos.map(), action.payload]};
+            const index = state.todos.findIndex((item) => item.id === action.payload)
+            if (index > -1) {
+                return state.todos.map((item) => {
+                    console.log(item)
+                })
+            } else {
+                return state;
+            }
+
+            // return { ...state, todos: [...state.todos.map((item) => item.id )]};
         case taskTypes.RETURN_FILTERED_TODOS:
             return { ...state, todos: [...state.todos.filter((todo) => todo.categoryId === action.payload.categoryId)]};
             case taskTypes.RETURN_FILTERED_TASKS:
@@ -84,5 +93,15 @@ export const tasksListReducer = (state = initialState, action: UserAction): Task
             return state;
     }
 };
+
+// const index = state.todos.findIndex(item => item.id === action.payload.id)
+// if (index > -1) {
+//     return state.todos.map(item => {
+//         if (item.id === action.payload.id) return action.payload;
+//         return {...state, todos: action.payload};
+//     });
+// } else {
+//     return {...state, todos: action.payload};
+// }
 
 // store.subscribe(() => console.log(store.getState()))

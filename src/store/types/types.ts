@@ -1,5 +1,6 @@
 import { IconsTypesEnum, StatusTypesEnum } from "../constants/constans";
-import { useState } from "react";
+
+export const initialCategory = 4;
 
 // **********************************************************************************
 // TASK LIST REDUCER
@@ -15,8 +16,8 @@ export enum taskTypes {
     SELECT_TASK = "SELECT_TASK",
 }
 
-export interface TaskState {
-    todos: TaskItemType[] | [];
+export type TaskState = {
+    todos: any;
 }
 
 export type TaskItemType = {
@@ -30,11 +31,9 @@ export type TaskItemType = {
 };
 
 export interface UserAction {
-    type: string;
+    type: any;
     payload: any;
 }
-
-export const initialCategory = 4;
 
 // **********************************************************************************
 // TASK BLOCK REDUCER
@@ -60,3 +59,36 @@ export type UserBlockAction = {
     type: string;
     payload?: any;
 };
+
+
+// **********************************************************************************
+// USER AUTH REDUCER
+// **********************************************************************************
+
+export enum UserAuthActionTypes {
+    SET_USER = "SET_USER",
+    REMOVE_USER = "REMOVE_USER",
+}
+
+// export type UserAuthState = {
+//     user: UserAuthStateList[] | [];
+// }
+
+export type UserAuthState = {
+    user: {
+        email: null,
+        token: null,
+        id: null,
+    };
+}
+
+// export type UserAuthStateList = {
+//     email: null,
+//     token: null,
+//     id: null,
+// }
+
+export type UserAuthAction = {
+    type: any;
+    payload?: any;
+}

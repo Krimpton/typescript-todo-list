@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FC, useCallback, useState } from "react";
 import "./tasks-details.scss";
 import Button from "./buttons/main-button/main-button";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { taskTypes } from "../../store/types/types";
 import { useDispatch } from "react-redux";
@@ -14,7 +14,6 @@ export type TasksDetailsProps = {
 
 const TasksDetails: FC = () => {
     const dispatch = useDispatch();
-
     const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
     const [isOpenSecond, setIsOpenSecond] = React.useState<boolean>(false);
@@ -65,13 +64,14 @@ const TasksDetails: FC = () => {
                 type: taskTypes.EDIT_TASK,
                 payload: {
                     title,
-                    // expiredAtValue,
+                    expiredAtValue,
                     // description,
+                    // status,
                 },
             });
             setTitle("");
-            // setDescription("");
-            // setExpiredAt("2021-07-20T16:09:00.765Z");
+            setDescription("");
+            setExpiredAt("2021-07-20T16:09:00.765Z");
         }
     };
 

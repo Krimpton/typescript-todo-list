@@ -6,14 +6,17 @@ import "./todosWrapper.scss";
 import { useDispatch } from "react-redux";
 import { taskTypes } from "../store/types/types";
 import { time } from "../store/reducers/tasks-list-reducer";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import Pagination from "../pagination/pagination";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import { StatusTypesEnum } from "../store/constants/constans";
 import TodosStatus from "../todos-status/todos-status";
+import { NavLink } from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 const ToDosWrapper: React.FC = () => {
     const { todos } = useTypedSelector((state) => state.taskList);
+  const {taskNumber}: {taskNumber: any} = useParams();
 
     const dispatch = useDispatch();
 
@@ -67,7 +70,9 @@ const ToDosWrapper: React.FC = () => {
     // ));
 
     const handleClickTasks = (taskNumber) => {
-        history.push("/tasksDetails");
+        history.push(`/tasksDetails/${taskNumber}`);
+
+
       dispatch({
         type: taskTypes.RETURN_FILTERED_TASKS,
         payload: {taskNumber},
