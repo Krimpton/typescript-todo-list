@@ -1,9 +1,11 @@
 import React, { ChangeEvent, useCallback, useState } from "react";
-import { taskTypes } from "../store/types/types";
+import { initialCategory, taskTypes } from "../store/types/types";
 import { useDispatch } from "react-redux";
 import { StatusTypesEnum } from "../store/constants/constans";
 import { v4 as uuidv4 } from "uuid";
 import "./todoInput.scss";
+import Button from "../layouts/tasks-details/buttons/main-button/main-button";
+import { useValue } from "../layouts/a-complete-layouts/dashboard-component/dashboard-component";
 
 export const TodoInput: React.FC = () => {
     const dispatch = useDispatch();
@@ -13,6 +15,12 @@ export const TodoInput: React.FC = () => {
     const [title, setTitle] = useState<string>("");
 
     const [status, setStatus] = useState<string>(defaultValue);
+
+    const [categoryId, setCategoryId] = useState<useValue | any>(1)
+
+    console.log(categoryId)
+
+    const [taskNumber, setTaskNumber] = useState<number>(7)
 
     const id = uuidv4();
 
@@ -37,9 +45,13 @@ export const TodoInput: React.FC = () => {
                     title,
                     status,
                     expiredAt,
+                    categoryId,
+                    taskNumber,
                 },
             });
             setTitle("");
+            setTaskNumber( taskNumber + 1)
+            setCategoryId(categoryId + 1)
         }
     };
 
@@ -50,15 +62,17 @@ export const TodoInput: React.FC = () => {
     };
 
     if (title.length > 10) {
-        alert("nooo");
+        alert("no");
     }
 
     return (
-        <div className="input-wrapper d-flex justify-content-center align-items-center flex-column font-weight-bold">
-            <div className="mb-3">
-                <p className="mb-1 font-weight-bold">Title:</p>
-
+        <div>
+            <div className="input-wrapper">
+                <p className="input-todos-title mb-1 font-weight-bold d-flex justify-content-center">
+                    Title:
+                </p>
                 <input
+                    className="big-input mb-2"
                     value={title}
                     onChange={handleTitleChange}
                     onKeyDown={handleKeyPress}
@@ -67,11 +81,15 @@ export const TodoInput: React.FC = () => {
                 />
             </div>
 
-            <div className="mb-3">
-                <p className="mb-1 font-weight-bold">Status:</p>
-                <div className="mb-2">
-                    <label htmlFor={`input_radio-${StatusTypesEnum.INACTIVE}`}>
+            <div className="ml-3 mt-3">
+                <div>
+                    <p className="mb-1 font-weight-bold">Status:</p>
+                    <label
+                        className="d-flex align-items-center"
+                        htmlFor={`input_radio-${StatusTypesEnum.INACTIVE}`}
+                    >
                         <input
+                            className="input-todos"
                             value={StatusTypesEnum.INACTIVE}
                             onChange={handleStatusChange}
                             type="radio"
@@ -79,47 +97,65 @@ export const TodoInput: React.FC = () => {
                             defaultChecked={true}
                             id={`input_radio-${StatusTypesEnum.INACTIVE}`}
                         />
-                        <span className="ml-2">Inactive</span>
+                        <span className="status-text-block ml-2">Inactive</span>
                     </label>
                 </div>
-                <div className="mb-2">
-                    <label htmlFor={`input_radio-${StatusTypesEnum.PENDING}`}>
+
+                <div>
+                    <label
+                        className="d-flex align-items-center"
+                        htmlFor={`input_radio-${StatusTypesEnum.PENDING}`}
+                    >
                         <input
+                            className="input-todos"
                             value={StatusTypesEnum.PENDING}
                             onChange={handleStatusChange}
                             type="radio"
                             name="status"
                             id={`input_radio-${StatusTypesEnum.PENDING}`}
                         />
-                        <span className="ml-2">Pending</span>
+                        <span className="status-text-block ml-2">Pending</span>
                     </label>
                 </div>
 
                 <div className="mb-2">
-                    <label htmlFor={`input_radio-${StatusTypesEnum.COMPLETED}`}>
+                    <label
+                        className="d-flex align-items-center"
+                        htmlFor={`input_radio-${StatusTypesEnum.COMPLETED}`}
+                    >
                         <input
+                            className="input-todos"
                             value={StatusTypesEnum.COMPLETED}
                             onChange={handleStatusChange}
                             type="radio"
                             name="status"
                             id={`input_radio-${StatusTypesEnum.COMPLETED}`}
                         />
-                        <span className="ml-2">Completed</span>
+                        <span className="status-text-block ml-2">Completed</span>
                     </label>
                 </div>
 
                 <div className="mb-2">
-                    <label htmlFor={`input_radio-${StatusTypesEnum.EXPIRED}`}>
+                    <label
+                        className="d-flex align-items-center"
+                        htmlFor={`input_radio-${StatusTypesEnum.EXPIRED}`}
+                    >
                         <input
+                            className="input-todos"
                             value={StatusTypesEnum.EXPIRED}
                             onChange={handleStatusChange}
                             type="radio"
                             name="status"
                             id={`input_radio-${StatusTypesEnum.EXPIRED}`}
                         />
-                        <span className="ml-2">Expired</span>
+                        <span className="status-text-block ml-2">Expired</span>
                     </label>
                 </div>
+                <Button
+                    text="Add task"
+                    classNames="add-category-task-list-button"
+                    action={handleSubmit}
+                />
             </div>
         </div>
     );

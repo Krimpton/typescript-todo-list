@@ -1,0 +1,57 @@
+
+.header-dropdown .text-toggle {
+  border: none !important;
+}
+
+.dropdown-material {
+  padding-right: 0;
+}
+
+.action-title {
+  padding-right: 4px !important;
+}
+
+.disabled-dropdown-item {
+  font-size: 14px;
+  //color: rgb(108, 117, 125);
+  font-weight: 300;
+  margin-bottom: 6px;
+}
+
+.text-toggle {
+  margin: 0 4px 0 0;
+  font-family: OpenSans, serif;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #333 !important;
+  background-color: white !important;
+
+  transition: border, color .8s;
+}
+
+.tasks-button {
+  opacity: 0.6;
+}
+
+.dropdown-material {
+  padding: 10px 12px 10px 0;
+}
+
+.tasks-list-wrapper {
+  margin-right: 384px;
+}
+
+.tasks-list-button {
+  opacity: 0.3;
+}
+
+.dashboard-modal-btn {
+  width: 359px;
+  height: 40px;
+  border-radius: 3px;
+  background-color: #ffffff;
+}

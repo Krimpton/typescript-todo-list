@@ -1,18 +1,18 @@
 .auth-button-wrapper {
-  width: 58px;
-  height: 32px;
-  margin: 16px 16px 16px 315px;
+    width: 58px;
+    height: 32px;
+    margin: 16px 16px 16px 315px;
 }
 
 .auth-button-wrapper span {
-  font-size: 14px;
-  color: #ffffff;
-  padding: 7px 10px 6px 12px;
-  width: 36px;
-  height: 19px;
-  border-radius: 3px;
-  border: solid 1px #00a5ef;
-  background-color: #00a5ef;
+    font-size: 14px;
+    color: #ffffff;
+    padding: 7px 10px 6px 12px;
+    width: 36px;
+    height: 19px;
+    border-radius: 3px;
+    border: solid 1px #00a5ef;
+    background-color: #00a5ef;
 }
 
 /*# sourceMappingURL=auth-button.css.map */

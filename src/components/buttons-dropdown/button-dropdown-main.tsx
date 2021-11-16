@@ -3,8 +3,11 @@ import "./button-dropdown-main.scss";
 
 import { ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle } from "reactstrap";
 import { useHistory } from "react-router-dom";
+// @ts-ignore
+import ruster from "../../assets/photos/ruster.jpg";
 
 export type iProps = {
+    value?: any;
     action?: (data: any) => void;
     classNames?: string;
     iName?: string;
@@ -19,6 +22,7 @@ export type iProps = {
 };
 
 const ButtonDropdownMain: React.FC<iProps> = ({
+    value,
     action,
     classNames,
     iName,
@@ -36,26 +40,27 @@ const ButtonDropdownMain: React.FC<iProps> = ({
 
     const history = useHistory();
 
-    const handleClick = () => {
-        history.push("/tasksList");
-    };
-    const handleClick1 = () => {
+    const handleClickDashboard = () => {
         history.push("/dashboard");
     };
-    const handleClick2 = () => {
+    const handleClickTasksList = () => {
+        history.push("/tasksList");
+    };
+    const handleClickTasksDetails = () => {
         history.push("/tasksDetails");
     };
-    const handleClick3 = () => {
+    const handleClickAuth = () => {
         history.push("/auth");
     };
-    const handleClick4 = () => {
-        history.push("/page404");
+    const handleClickPageError = () => {
+        history.push("/pageError");
     };
 
     return (
         <ButtonDropdown isOpen={dropdownOpen} toggle={toggle} className={classNames}>
             <DropdownToggle className="text-toggle d-flex justify-content-center align-items-center">
                 <span className="action-title">{iName}</span>
+                <span className="material-icons header-arrow">keyboard_arrow_down</span>
                 <span className="material-icons dropdown-material">{iIcons}</span>
             </DropdownToggle>
             <DropdownMenu>
@@ -68,36 +73,37 @@ const ButtonDropdownMain: React.FC<iProps> = ({
                     </DropdownItem>
                     <DropdownItem
                         className="dropdown-item d-flex justify-content-center align-items-center"
-                        onClick={handleClick}
+                        onClick={handleClickDashboard}
                     >
                         {action0}
                     </DropdownItem>
                     <DropdownItem
                         className="dropdown-item d-flex justify-content-center align-items-center"
-                        onClick={handleClick1}
+                        onClick={handleClickTasksList}
                     >
                         {action1}
                     </DropdownItem>
                     <DropdownItem
                         className="dropdown-item d-flex justify-content-center align-items-center"
-                        onClick={handleClick2}
+                        onClick={handleClickTasksDetails}
                     >
                         {action2}
                     </DropdownItem>
                     <DropdownItem
                         className="dropdown-item d-flex justify-content-center align-items-center"
-                        onClick={handleClick3}
+                        onClick={handleClickAuth}
                     >
                         {action3}
                     </DropdownItem>
                     <DropdownItem
                         className="dropdown-item d-flex justify-content-center align-items-center"
-                        onClick={handleClick4}
+                        onClick={handleClickPageError}
                     >
                         {action4}
                     </DropdownItem>
                 </div>
             </DropdownMenu>
+            <img className="photo-ruster" src={ruster} alt="ruster" onClick={toggle} />
         </ButtonDropdown>
     );
 };
