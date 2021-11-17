@@ -4,7 +4,7 @@
 
 .login-wrapper {
   width: 389px;
-  height: 248px;
+  min-height: 250px;
   border-radius: 3px;
   border: solid 1px #d8d8d8;
 }
@@ -53,4 +53,17 @@
   color: blue;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.email-validation{
+  margin-top: 10px;
+
+  color: red;
+}
+
+.password-validation {
+  margin-left: 16px;
+  margin-top: 10px;
+
+  color: red;
 }

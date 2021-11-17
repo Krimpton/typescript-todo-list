@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import "./login.scss";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {getAuth, signInWithEmailAndPassword } from "firebase/auth";

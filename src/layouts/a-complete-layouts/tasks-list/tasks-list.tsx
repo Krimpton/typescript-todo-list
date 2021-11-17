@@ -57,23 +57,6 @@ const TasksList: FC = () => {
         console.log(status);
     };
 
-    // const [isCheckbox, setIsCheckbox] = useState<string | number | readonly string[] | undefined>(false );
-    // console.log(isCheckbox);
-
-    // const handleClick = () => {
-    //     setIsCheckbox(!isCheckbox);
-    // };
-
-    // const handleChange = (event) => {
-    //     setIsCheckbox(event.value);
-    // };
-
-    const [checkboxValue, setCheckboxValue] = useState(false);
-
-    if (checkboxValue) {
-        console.log("yo");
-    }
-
     const dropdownHandler = () => {
         history.push("/tasksDetails")
     }
@@ -188,12 +171,11 @@ const TasksList: FC = () => {
                 <div className="isModal-task-list" onClick={() => setIsOpen(false)}>
                     <div className="task-list-modal" onClick={(e) => e.stopPropagation()}>
                         <TodoInput />
-
-                        <div className="return-btn-section d-flex">
+                        <div className="return-btn-section ">
                             <Button
-                                text="Return"
-                                classNames={"return-button"}
-                                action={toggleVisibleHandler}
+                              text="Return"
+                              classNames={"return-button"}
+                              action={toggleVisibleHandler}
                             />
                         </div>
                     </div>

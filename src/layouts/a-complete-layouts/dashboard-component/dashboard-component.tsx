@@ -12,6 +12,7 @@ import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { IconsTypesEnum } from "../../../store/constants/constans";
 import { Redirect, useHistory } from "react-router-dom";
 import { useAuth } from "../../../hooks/use-auth";
+import { useInput } from "../../../hooks/useValidation";
 
 export interface useValue {
     categoryId: number;
@@ -120,16 +121,16 @@ const DashboardComponent: FC = () => {
         });
 
         if (categoryId) {
-            return console.log(setGlobalId(categoryId))
+            // return console.log(setGlobalId(categoryId))
         }
     };
 
     // const handleCategoryId = todos.filter((todos) => (todos.categoryId = 1));
     // const handleCategoryId = console.log("d")
 
-    useEffect(() => {
-        console.log(categoryId);
-    }, []);
+    // useEffect(() => {
+    //     console.log(categoryId);
+    // }, []);
 
     const blockItems = block.map((item, index) => (
         <div key={index} className="mini-tasks" onClick={() => handleCategoryId(item.categoryId)}>
@@ -143,9 +144,12 @@ const DashboardComponent: FC = () => {
         </div>
     ));
 
-    const {isAuth, email} = useAuth();
 
-    return isAuth ? (
+
+const input = useInput('', {minLength: 3, maxLength: 12, isEmpty: true})
+
+    // return isAuth ? (
+    return  (
         <>
             {isOpen && (
                 <div className="isModal-dashboard" onClick={() => setIsOpen(false)}>
@@ -155,26 +159,33 @@ const DashboardComponent: FC = () => {
                                 Add new category
                             </p>
                         </div>
-
                         <form onSubmit={handleSubmit(onSubmit)} className="dashboard-content">
                             <div className="category-name-section d-flex justify-content-center align-items-start flex-column mb-4">
                                 <label className="category-name">Category name:</label>
-                                <input
-                                    {...register("category", {
-                                        required: "⚠ Field can’t be empty...",
-                                        minLength: 3,
-                                        maxLength: 10,
-                                    })}
-                                    value={title}
-                                    onChange={handleTitleBlockChange}
-                                    onKeyDown={handleKeyBlockPress}
-                                    type="text"
-                                    placeholder="type anything..."
-                                    required
-                                />
-                                {errors.category && (
-                                    <div className="error">⚠ Field can’t be empty...</div>
-                                )}
+
+                                {input.isDirty && input.isEmpty && <div className="validation">{input.empty}</div>}
+                                {input.isDirty && input.isMinLength && <div className="validation">{input.minLength}</div>}
+                                {input.isDirty && input.isMaxLength && <div className="validation">{input.maxLength}</div>}
+                                {input.isDirty && input.isEmailError && <div className="validation">{input.emailError}</div>}
+
+                                <input onBlur={e => input.onBlur(e)} onChange={handleTitleBlockChange} value={title} name="input" type="text" placeholder="type anything..." />
+
+                                {/*<input*/}
+                                {/*    {...register("category", {*/}
+                                {/*        required: "⚠ Field can’t be empty...",*/}
+                                {/*        minLength: 3,*/}
+                                {/tat*        maxLength: 10,*/}
+                                {/*    })}*/}
+                                {/*    value={title}*/}
+                                {/*    onChange={handleTitleBlockChange}*/}
+                                {/*    onKeyDown={handleKeyBlockPress}*/}
+                                {/*    type="text"*/}
+                                {/*    placeholder="type anything..."*/}
+                                {/*    required*/}
+                                {/*/>*/}
+                                {/*{errors.category && (*/}
+                                {/*    <div className="error">⚠ Field can’t be empty...</div>*/}
+                                {/*)}*/}
                             </div>
 
                             <div className="category-icon-wrapper d-flex justify-content-start align-items-start flex-column">
@@ -223,7 +234,8 @@ const DashboardComponent: FC = () => {
                                 text="Add category"
                                 classNames="add-category-button"
                                 mIcons={"add"}
-                                action={handleDashboardSubmit}
+                                action={handleKeyBlockPress}
+                                disabled={!input.formValid}
                             />
                         </div>
                     </div>
@@ -250,8 +262,9 @@ const DashboardComponent: FC = () => {
                 <Footer />
             </div>
         </>
-    ) : (
-      <Redirect to={"/login"} />
+    // )
+      // : (
+      // <Redirect to={"/login"} />
     );
 };
 
