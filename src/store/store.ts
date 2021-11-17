@@ -11,3 +11,5 @@ export type ButtonProps = {
 };
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware()));
+
+export type RootStoreState = ReturnType<typeof store.getState>;

@@ -7,6 +7,7 @@ export type ButtonProps = {
     mIcons?: string;
     action?: (data: any) => void;
     singleButton?: any;
+    disabled?: any;
 };
 
 const Button: React.FC<ButtonProps> = ({
@@ -16,10 +17,12 @@ const Button: React.FC<ButtonProps> = ({
     action,
     mIcons,
     singleButton,
+  disabled,
 }) => {
     return (
         <button className={`button d-flex justify-content-center align-items-center  ${classNames || ""} `}
             onClick={action}
+                disabled={disabled}
         >
             {children}
             <span className={`material-icons ${singleButton || ""}`}>{mIcons}</span>

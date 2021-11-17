@@ -12,11 +12,9 @@ const Header: React.FC = () => {
                 iName={"James Smith"}
                 iIcons={"keyboard_arrow_down"}
                 actionName={"User actions:"}
-                action0={"Dashboard"}
-                action1={"Tasks Lists"}
-                action2={"Tasks Details"}
-                action3={"Auth Page"}
-                action4={"Page 404"}
+                action2={"Dashboard"}
+                action0={"Login"}
+                action1={"Logout"}
             />
         </div>
     );

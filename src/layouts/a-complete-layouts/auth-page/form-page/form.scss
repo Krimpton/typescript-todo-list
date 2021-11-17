@@ -4,7 +4,7 @@
 
 .login-wrapper {
   width: 389px;
-  height: 218px;
+  min-height: 250px;
   border-radius: 3px;
   border: solid 1px #d8d8d8;
 }
@@ -47,4 +47,23 @@
 .auth-return-button {
   margin-top: -45px;
   margin-left: 16px;
+}
+
+.sign-up {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.email-validation{
+  margin-top: 10px;
+
+  color: red;
+}
+
+.password-validation {
+  margin-left: 16px;
+  margin-top: 10px;
+
+  color: red;
 }

@@ -5,13 +5,12 @@ import Header from "../../header/header";
 import Footer from "../../footer/footer";
 
 const TasksDetailsComponent: FC = () => {
-    return (
+  return (
         <div>
             <Header />
             <div className="main_content">
                 <TasksDetails />
             </div>
-
             <Footer />
         </div>
     );

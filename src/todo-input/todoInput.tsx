@@ -1,11 +1,15 @@
 import React, { ChangeEvent, useCallback, useState } from "react";
-import { initialCategory, taskTypes } from "../store/types/types";
+import { taskTypes } from "../store/types/types";
 import { useDispatch } from "react-redux";
 import { StatusTypesEnum } from "../store/constants/constans";
 import { v4 as uuidv4 } from "uuid";
 import "./todoInput.scss";
 import Button from "../layouts/tasks-details/buttons/main-button/main-button";
-import { useValue } from "../layouts/a-complete-layouts/dashboard-component/dashboard-component";
+import {
+    useValue,
+    valueCategory,
+} from "../layouts/a-complete-layouts/dashboard-component/dashboard-component";
+import { useInput } from "../hooks/useValidation";
 
 export const TodoInput: React.FC = () => {
     const dispatch = useDispatch();
@@ -16,11 +20,11 @@ export const TodoInput: React.FC = () => {
 
     const [status, setStatus] = useState<string>(defaultValue);
 
-    const [categoryId, setCategoryId] = useState<useValue | any>(1)
+    const [categoryId, setCategoryId] = useState<useValue | any>(0);
 
-    console.log(categoryId)
+    console.log(valueCategory);
 
-    const [taskNumber, setTaskNumber] = useState<number>(7)
+    const [taskNumber, setTaskNumber] = useState<number>(7);
 
     const id = uuidv4();
 
@@ -50,8 +54,8 @@ export const TodoInput: React.FC = () => {
                 },
             });
             setTitle("");
-            setTaskNumber( taskNumber + 1)
-            setCategoryId(categoryId + 1)
+            setTaskNumber(taskNumber + 1);
+            setCategoryId(categoryId + 1);
         }
     };
 
@@ -65,17 +69,32 @@ export const TodoInput: React.FC = () => {
         alert("no");
     }
 
+    const input = useInput("", { minLength: 3, maxLength: 12, isEmpty: true });
+
     return (
         <div>
             <div className="input-wrapper">
                 <p className="input-todos-title mb-1 font-weight-bold d-flex justify-content-center">
                     Title:
                 </p>
+                {input.isDirty && input.isEmpty && <div className="validation">{input.empty}</div>}
+                {input.isDirty && input.isMinLength && (
+                    <div className="validation">{input.minLength}</div>
+                )}
+                {input.isDirty && input.isMaxLength && (
+                    <div className="validation">{input.maxLength}</div>
+                )}
+                {input.isDirty && input.isEmailError && (
+                    <div className="validation">{input.emailError}</div>
+                )}
+
                 <input
+                    onBlur={(e) => input.onBlur(e)}
+                    onChange={(e) => input.onChange(e)}
                     className="big-input mb-2"
-                    value={title}
-                    onChange={handleTitleChange}
-                    onKeyDown={handleKeyPress}
+                    value={input.value}
+                    // onChange={handleTitleChange}
+                    // onKeyDown={handleKeyPress}
                     type="text"
                     placeholder="type anything..."
                 />
@@ -151,11 +170,14 @@ export const TodoInput: React.FC = () => {
                         <span className="status-text-block ml-2">Expired</span>
                     </label>
                 </div>
-                <Button
-                    text="Add task"
-                    classNames="add-category-task-list-button"
-                    action={handleSubmit}
-                />
+                <div className="btn-wrapper">
+                    <Button
+                        text="Add task"
+                        classNames="add-category-task-list-button"
+                        action={handleSubmit}
+                        disabled={!input.formValid}
+                    />
+                </div>
             </div>
         </div>
     );

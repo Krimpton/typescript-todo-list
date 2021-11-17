@@ -1,27 +1,37 @@
-import React, { FC } from "react";
+import React, { FC, lazy, Suspense } from "react";
 import "./main-content.scss";
+import Loader from "react-loader-spinner";
+import "../firebase";
 
-import { BrowserRouter, Route } from "react-router-dom";
-import TasksList from "../layouts/a-complete-layouts/tasks-list/tasks-list";
-import Auth from "../layouts/a-complete-layouts/auth-page/auth";
-import PageNotFound from "../layouts/page-404/page-404";
-import TasksDetailsComponent from "../layouts/a-complete-layouts/tasks-details-component/tasks-details-component";
-import DashboardComponent from "../layouts/a-complete-layouts/dashboard-component/dashboard-component";
-import { ButtonProps } from "../store/store";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-const MainContent: FC<ButtonProps> = () => {
-    return (
-        <BrowserRouter>
-            <div className="main-wrapper">
-                <Route exact path={"/dashboard"} component={DashboardComponent} />
-                <Route exact path={"/tasksList"} component={TasksList} />
-                <Route exact path={"/tasksDetails"} component={TasksDetailsComponent} />
-                <Route exact path={"/auth"} component={Auth} />
-                <Route exact path={"/pageError"} component={PageNotFound} />
-                <Route exact path="/" component={DashboardComponent} />
-            </div>
-        </BrowserRouter>
-    );
+const TasksList = lazy(() => import("../layouts/a-complete-layouts/tasks-list/tasks-list"));
+const Login = lazy(() => import("../layouts/a-complete-layouts/auth-page/login-page/login"));
+const PageNotFound = lazy(() => import("../layouts/page-404/page-404"));
+const TasksDetailsComponent = lazy(() => import("../layouts/a-complete-layouts/tasks-details-component/tasks-details-component"));
+const DashboardComponent = lazy(() => import("../layouts/a-complete-layouts/dashboard-component/dashboard-component"));
+const Registration = lazy(() => import("../layouts/a-complete-layouts/auth-page/register-page/registration"));
+
+const MainContent: FC = () => {
+  return (
+    <BrowserRouter>
+      <div className="main-wrapper">
+        <Suspense fallback={<div className="spinner d-flex justify-content-center align-items-center">
+          <Loader type="Circles" color="#00BFFF" height={100} width={100} />
+        </div>}>
+          <Switch>
+            <Route exact path={"/dashboard"} component={DashboardComponent} />
+            <Route path={"/tasksList/:id"} component={TasksList} />
+            <Route path={"/tasksDetails/:id"} component={TasksDetailsComponent} />
+            <Route exact path={"/login"} component={Login} />
+            <Route exact path={"/registration"} component={Registration} />
+            <Route exact path="/" component={DashboardComponent} />
+            <Route component={PageNotFound} />
+          </Switch>
+        </Suspense>
+      </div>
+    </BrowserRouter>
+  );
 };
 
 export default MainContent;

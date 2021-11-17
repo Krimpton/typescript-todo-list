@@ -19,7 +19,7 @@
       <option name="myCustomValuesEnabled" value="true" />
     </inspection_tool>
     <inspection_tool class="RequiredAttributes" enabled="true" level="WARNING" enabled_by_default="true">
-      <option name="myAdditionalRequiredHtmlAttributes" value="text" />
+      <option name="myAdditionalRequiredHtmlAttributes" value="text,history" />
     </inspection_tool>
   </profile>
 </component>

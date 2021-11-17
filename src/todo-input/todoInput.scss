@@ -28,3 +28,7 @@ input:focus:invalid {
   background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% #fbe4e7;
   background-size: 25px;
 }
+
+.btn-wrapper {
+  min-height: 50px;
+}
