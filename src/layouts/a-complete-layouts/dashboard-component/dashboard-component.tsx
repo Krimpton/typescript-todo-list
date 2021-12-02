@@ -5,14 +5,13 @@ import Footer from "../../footer/footer";
 import TasksInfo from "../../tasks-info/tasks-info";
 import Button from "../../tasks-details/buttons/main-button/main-button";
 import { useDispatch } from "react-redux";
-import { initialCategory, taskBlockTypes, taskTypes } from "../../../store/types/types";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { taskBlockTypes, taskTypes } from "../../../store/types/types";
 import { v4 as uuidv4 } from "uuid";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { IconsTypesEnum } from "../../../store/constants/constans";
 import { Redirect, useHistory } from "react-router-dom";
-import { useAuth } from "../../../hooks/use-auth";
 import { useInput } from "../../../hooks/useValidation";
+import { useCookies } from "react-cookie";
 
 export interface useValue {
     categoryId: number;
@@ -27,7 +26,6 @@ export const valueCategory: useValue = {
 const DashboardComponent: FC = () => {
     const { block } = useTypedSelector((state) => state.taskBlock);
 
-    const [title, setTitle] = useState<string>("");
 
     const [id, setId] = useState<number>(uuidv4());
 
@@ -35,35 +33,22 @@ const DashboardComponent: FC = () => {
 
     const [globalId, setGlobalId] = useState<number>(0)
 
-    console.log(globalId)
-
     const taskLength = block.length;
 
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
-    const { todos } = useTypedSelector((state) => state.taskList);
-
-    type Category = {
-        category: string;
-    };
-
     const history = useHistory();
 
-    const {
-        register,
-        handleSubmit,
-        watch,
-        formState: { errors },
-    } = useForm<Category>();
-
-    const onSubmit: SubmitHandler<Category> = (data, block) => {
-        console.log(data);
-    };
 
     const dispatch = useDispatch();
 
+
+    const [title, setTitle] = useState<string>("");
+    const [isTitle, setISTitle] = useState(false);
+
+
     const handleDashboardSubmit = (e) => {
-        if (title) {
+        // if (title.length < 20) {
             dispatch({
                 type: taskBlockTypes.ADD_TASK_BLOCK,
                 payload: {
@@ -73,16 +58,14 @@ const DashboardComponent: FC = () => {
                     taskLength,
                     categoryId,
                     globalId,
-                },
-            });
+                }
+            }
+
+            );
             setCategoryId(categoryId + 1);
             setTitle("");
-
             setGlobalId(categoryId);
-        }
-        if (categoryId === globalId) {
-            return;
-        }
+        // }
     };
 
     const handleKeyBlockPress = (e) => {
@@ -91,10 +74,24 @@ const DashboardComponent: FC = () => {
         }
     };
 
+
+
     const handleTitleBlockChange = useCallback(
         (event: ChangeEvent<HTMLInputElement>) => setTitle(event.target.value),
         [],
     );
+
+    const [cookies, setCookies] = useCookies(['email']);
+
+    // function onChange(newName) {
+    //     setCookies('name', newName, { path: '/' });
+    // }
+
+    const onChange = (e) => {
+        setTitle(e.target.value);
+        setCookies('email',{path: '/login'})
+    }
+
 
     const [selected, setSelected] = useState("Choose One");
 
@@ -114,23 +111,12 @@ const DashboardComponent: FC = () => {
 
     const handleCategoryId = (categoryId) => {
         history.push(`/tasksList/${categoryId}`)
-
         dispatch({
             type: taskTypes.RETURN_FILTERED_TODOS,
             payload: { categoryId, globalId }
         });
-
-        if (categoryId) {
-            // return console.log(setGlobalId(categoryId))
-        }
     };
 
-    // const handleCategoryId = todos.filter((todos) => (todos.categoryId = 1));
-    // const handleCategoryId = console.log("d")
-
-    // useEffect(() => {
-    //     console.log(categoryId);
-    // }, []);
 
     const blockItems = block.map((item, index) => (
         <div key={index} className="mini-tasks" onClick={() => handleCategoryId(item.categoryId)}>
@@ -146,7 +132,37 @@ const DashboardComponent: FC = () => {
 
 
 
-const input = useInput('', {minLength: 3, maxLength: 12, isEmpty: true})
+
+
+// const input = useInput('', {minLength: 3, maxLength: 12, isEmpty: true})
+
+
+    const [dirty, setDirty] = useState(false);
+    const [error, setError] = useState('Поле не должно быть пустым');
+    const [formValid, setFormValid] = useState(false)
+
+    const blurHandler = (e) => {
+        switch (e.target.name) {
+            case 'title': {
+                setDirty(true)
+                break;
+            }
+            default:
+                setDirty(false);
+         }
+        }
+
+    const dataHandler = (e) => {
+        setTitle(e.target.value);
+        if (e.target.value.length < 3 || e.target.value.length > 12) {
+            setError('Длинна должна быть > 3 и < 12 символов')
+            setFormValid(false)
+        } else {
+            setFormValid(true)
+            setError('')
+        }
+    }
+
 
     // return isAuth ? (
     return  (
@@ -159,33 +175,22 @@ const input = useInput('', {minLength: 3, maxLength: 12, isEmpty: true})
                                 Add new category
                             </p>
                         </div>
-                        <form onSubmit={handleSubmit(onSubmit)} className="dashboard-content">
+                        <form className="dashboard-content">
                             <div className="category-name-section d-flex justify-content-center align-items-start flex-column mb-4">
                                 <label className="category-name">Category name:</label>
 
-                                {input.isDirty && input.isEmpty && <div className="validation">{input.empty}</div>}
-                                {input.isDirty && input.isMinLength && <div className="validation">{input.minLength}</div>}
-                                {input.isDirty && input.isMaxLength && <div className="validation">{input.maxLength}</div>}
-                                {input.isDirty && input.isEmailError && <div className="validation">{input.emailError}</div>}
+                                {/*<input onChange={e => dataHandler(e)} value={data} onBlur={e => blurHandler(e)} name='data' type='text'/>*/}
+                                {/*{(dirty && error) && <div style={{color: "red"}}>{error}</div>}*/}
 
-                                <input onBlur={e => input.onBlur(e)} onChange={handleTitleBlockChange} value={title} name="input" type="text" placeholder="type anything..." />
+                                {/*<button type='submit'>submit</button>*/}
 
-                                {/*<input*/}
-                                {/*    {...register("category", {*/}
-                                {/*        required: "⚠ Field can’t be empty...",*/}
-                                {/*        minLength: 3,*/}
-                                {/tat*        maxLength: 10,*/}
-                                {/*    })}*/}
-                                {/*    value={title}*/}
-                                {/*    onChange={handleTitleBlockChange}*/}
-                                {/*    onKeyDown={handleKeyBlockPress}*/}
-                                {/*    type="text"*/}
-                                {/*    placeholder="type anything..."*/}
-                                {/*    required*/}
-                                {/*/>*/}
-                                {/*{errors.category && (*/}
-                                {/*    <div className="error">⚠ Field can’t be empty...</div>*/}
-                                {/*)}*/}
+
+                                {error && dirty && <div style={{color: "red"}}>{error}</div>}
+                                <input onBlur={e => blurHandler(e)} onChange={e => dataHandler(e)}
+                                       onKeyDown={handleKeyBlockPress} value={title} name='title' type="text" placeholder="type anything..." required/>
+
+                                {/*<input onBlur={e => input.onBlur(e)} onChange={handleTitleBlockChange}*/}
+                                {/*       onKeyDown={handleKeyBlockPress} value={title} name="category" type="text" placeholder="type anything... (20 symbols maximum)" required/>*/}
                             </div>
 
                             <div className="category-icon-wrapper d-flex justify-content-start align-items-start flex-column">
@@ -234,8 +239,8 @@ const input = useInput('', {minLength: 3, maxLength: 12, isEmpty: true})
                                 text="Add category"
                                 classNames="add-category-button"
                                 mIcons={"add"}
-                                action={handleKeyBlockPress}
-                                disabled={!input.formValid}
+                                action={handleDashboardSubmit}
+                                disabled={!formValid}
                             />
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 'use strict';
 
-// Do this as the first thing so that any code reading it knows the right env.
+// Do this as the first thing so that any code reading it knows the right .env.local.
 process.env.BABEL_ENV = 'production';
 process.env.NODE_ENV = 'production';
 
@@ -179,7 +179,7 @@ function build(previousFileSizes) {
       ) {
         console.log(
           chalk.yellow(
-            '\nTreating warnings as errors because process.env.CI = true.\n' +
+            '\nTreating warnings as errors because process..env.local.CI = true.\n' +
               'Most CI servers set it automatically.\n'
           )
         );

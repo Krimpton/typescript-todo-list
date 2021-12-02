@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useState } from "react";
+import React, { ChangeEvent, useCallback, useEffect, useState } from "react";
 import { taskTypes } from "../store/types/types";
 import { useDispatch } from "react-redux";
 import { StatusTypesEnum } from "../store/constants/constans";
@@ -10,6 +10,7 @@ import {
     valueCategory,
 } from "../layouts/a-complete-layouts/dashboard-component/dashboard-component";
 import { useInput } from "../hooks/useValidation";
+import { useForm } from "react-hook-form";
 
 export const TodoInput: React.FC = () => {
     const dispatch = useDispatch();
@@ -17,6 +18,7 @@ export const TodoInput: React.FC = () => {
     const defaultValue = StatusTypesEnum.INACTIVE;
 
     const [title, setTitle] = useState<string>("");
+    const [isTitle, setIsTitle] = useState(false);
 
     const [status, setStatus] = useState<string>(defaultValue);
 
@@ -40,8 +42,22 @@ export const TodoInput: React.FC = () => {
         [],
     );
 
-    const handleSubmit = (e) => {
-        if (title) {
+    const onSubmit = (data) => {
+        alert(JSON.stringify(data));
+    };
+
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors }
+    } = useForm();
+
+
+
+
+    const handleSubmits = (e) => {
+        if (title.length < 12) {
             dispatch({
                 type: taskTypes.ADD_TASK,
                 payload: {
@@ -61,15 +77,38 @@ export const TodoInput: React.FC = () => {
 
     const handleKeyPress = (e) => {
         if (e.key === "Enter") {
-            handleSubmit(e);
+            handleSubmits(e);
         }
     };
 
-    if (title.length > 10) {
-        alert("no");
+    // const input = useInput("", { minLength: 3, maxLength: 12, isEmpty: true });
+
+
+    const [dirtyField, setDirtyField] = useState(false);
+    const [error, setError] = useState('Поле не должно быть пустым');
+    const [formValid, setFormValid] = useState(false)
+
+    const blurHandler = (e) => {
+        switch (e.target.name) {
+            case 'title': {
+                setDirtyField(true)
+                break;
+            }
+            default:
+                setDirtyField(false);
+        }
     }
 
-    const input = useInput("", { minLength: 3, maxLength: 12, isEmpty: true });
+    const dataHandler = (e) => {
+        setTitle(e.target.value);
+        if (e.target.value.length < 3 || e.target.value.length > 12) {
+            setError('Длинна должна быть > 3 и < 12 символов')
+            setFormValid(false)
+        } else {
+            setFormValid(true)
+            setError('')
+        }
+    }
 
     return (
         <div>
@@ -77,27 +116,29 @@ export const TodoInput: React.FC = () => {
                 <p className="input-todos-title mb-1 font-weight-bold d-flex justify-content-center">
                     Title:
                 </p>
-                {input.isDirty && input.isEmpty && <div className="validation">{input.empty}</div>}
-                {input.isDirty && input.isMinLength && (
-                    <div className="validation">{input.minLength}</div>
-                )}
-                {input.isDirty && input.isMaxLength && (
-                    <div className="validation">{input.maxLength}</div>
-                )}
-                {input.isDirty && input.isEmailError && (
-                    <div className="validation">{input.emailError}</div>
-                )}
 
+                {error && dirtyField && <div style={{color: "red"}}>{error}</div>}
                 <input
-                    onBlur={(e) => input.onBlur(e)}
-                    onChange={(e) => input.onChange(e)}
+                    onBlur={e => blurHandler(e)}
+                    onChange={e => dataHandler(e)}
                     className="big-input mb-2"
-                    value={input.value}
-                    // onChange={handleTitleChange}
-                    // onKeyDown={handleKeyPress}
+                    value={title}
+                    name='title'
+                    onKeyDown={handleKeyPress}
                     type="text"
                     placeholder="type anything..."
+                    required
                 />
+
+                {/*<input*/}
+                {/*    onBlur={(e) => input.onBlur(e)}*/}
+                {/*    onChange={handleTitleChange}*/}
+                {/*    className="big-input mb-2"*/}
+                {/*    value={title}*/}
+                {/*    onKeyDown={handleKeyPress}*/}
+                {/*    type="text"*/}
+                {/*    placeholder="type anything... (12 symbols maximum)"*/}
+                {/*/>*/}
             </div>
 
             <div className="ml-3 mt-3">
@@ -174,8 +215,8 @@ export const TodoInput: React.FC = () => {
                     <Button
                         text="Add task"
                         classNames="add-category-task-list-button"
-                        action={handleSubmit}
-                        disabled={!input.formValid}
+                        action={handleSubmits}
+                        disabled={!formValid}
                     />
                 </div>
             </div>

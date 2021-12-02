@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import "./form.scss";
 import Button from "../../../tasks-details/buttons/main-button/main-button";
 import { useHistory } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 interface FormProps {
   title: string;
@@ -17,7 +18,7 @@ const Form: FC<FormProps> = ({title, handleClick, redirect, question}) => {
     history.push("/dashboard");
   };
 
-  const [email, setEmail] = useState<string>('');
+  const [email, setEmail] = useState<string>('qwerty');
   const [password, setPassword] = useState<string>('');
 
   const [emailDirty, setEmailDirty] = useState(false);
@@ -27,6 +28,10 @@ const Form: FC<FormProps> = ({title, handleClick, redirect, question}) => {
   const [passwordError, setPasswordError] = useState("Password не может быть пустым");
 
   const [formValid, setFormValid] = useState(false);
+
+
+  const [cookie, setCookie] = useCookies(['email', 'password']);
+
 
   useEffect(() => {
     if (emailError || passwordError) {
@@ -49,6 +54,7 @@ const Form: FC<FormProps> = ({title, handleClick, redirect, question}) => {
 
   const emailHandler = (e) => {
     setEmail(e.target.value)
+    setCookie('email',{path: '/login'});
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if(!re.test(String(e.target.value).toLowerCase())) {
       setEmailError('Некоректный email')
@@ -59,6 +65,7 @@ const Form: FC<FormProps> = ({title, handleClick, redirect, question}) => {
 
   const passwordHandler = (e) => {
     setPassword(e.target.value)
+    setCookie('password',{path: '/login'});
     if (e.target.value.length < 3 || e.target.value.length > 8) {
       setPasswordError('Password должен быть > 3 и < 8 символов')
     if (!e.target.value) {

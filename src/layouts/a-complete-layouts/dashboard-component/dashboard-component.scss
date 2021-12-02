@@ -32,7 +32,6 @@
 .dashboard-header-text {
   width: 390px;
   min-height: 22px;
-  font-family: OpenSans, serif;
   font-size: 16px;
   font-weight: bold;
   color: #333333;
@@ -49,7 +48,6 @@
 .category-name {
   width: 71px;
   height: 13px;
-  font-family: OpenSans, serif;
   font-size: 16px;
   font-weight: bold;
   font-stretch: normal;
@@ -60,20 +58,18 @@
 
 }
 
+
+
+
+
 .error {
   content: "⚠";
   color: red;
-  //margin-bottom: 20px;
-}
-
-
-.category-input {
 }
 
 .category-icon {
   width: 65px;
   height: 13px;
-  font-family: OpenSans, serif;
   font-weight: bold;
   color: #333333;
   font-size: 16px;
@@ -89,15 +85,15 @@ input {
 
   font-size: 1rem;
   padding: 0.5rem;
-  transition: all .5s ease-in 0.1s;
+  transition: all .4s ease-in 0.1s;
 }
 
 input:invalid {
-  background-color: #fbe4e7;
+  background-color: #fff1f4;
 }
 
 input:required:focus:valid {
-  background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg") no-repeat 95% 50% lightgreen;
+  background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg") no-repeat 95% 50% rgba(144, 238, 144, 0.68);
   background-size: 25px;
 }
 
@@ -105,7 +101,6 @@ input:focus:invalid {
   background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% #fbe4e7;
   background-size: 25px;
 }
-
 
 * {
   margin: 0;

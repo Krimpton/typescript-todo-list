@@ -29,8 +29,6 @@ const TasksList: FC = () => {
 
     const [icon, setIcon] = useState<string>(defaultValue);
 
-    const [status, setStatus] = useState();
-
     const dispatch = useDispatch();
 
     const history = useHistory();
@@ -45,20 +43,15 @@ const TasksList: FC = () => {
         setIsOpen((isOpen) => !isOpen);
     };
 
-    const filteredDefaultValue = StatusTypesEnum;
-
-    const [filtered, setFiltered] = useState<any>(filteredDefaultValue);
-
     const todoStatusFilter = (status) => {
         dispatch({
             type: taskTypes.FILTER_STATUS_FILTER,
             payload: { status },
         });
-        console.log(status);
     };
 
     const dropdownHandler = () => {
-        history.push("/tasksDetails")
+        history.push("/tasksDetails/1")
     }
 
     return (

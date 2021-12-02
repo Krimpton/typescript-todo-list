@@ -19,16 +19,20 @@
 
 }
 
-input:required:focus:valid {
-  background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg") no-repeat 95% 50% lightgreen;
-  background-size: 25px;
-}
-
-input:focus:invalid {
-  background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% #fbe4e7;
-  background-size: 25px;
-}
+//input:required:focus:valid {
+//  background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg") no-repeat 95% 50% lightgreen;
+//  background-size: 25px;
+//}
+//
+//input:focus:invalid {
+//  background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% #fbe4e7;
+//  background-size: 25px;
+//}
 
 .btn-wrapper {
   min-height: 50px;
+}
+
+.validation-color {
+  color: #fbe4e7;
 }

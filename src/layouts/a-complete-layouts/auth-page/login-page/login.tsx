@@ -14,6 +14,7 @@ const Login: FC = () => {
         history.push("/registration")
     }
 
+
     const handleLogin = (email, password) => {
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)

@@ -14,10 +14,11 @@ export enum taskTypes {
     RETURN_FILTERED_TODOS = "RETURN_FILTERED_TODOS",
     RETURN_FILTERED_TASKS = "RETURN_FILTERED_TASKS",
     SELECT_TASK = "SELECT_TASK",
+    COMPLETED_STATUS = "COMPLETED_STATUS",
 }
 
 export type TaskState = {
-    todos: any;
+    todos: any | [];
 }
 
 export type TaskItemType = {
