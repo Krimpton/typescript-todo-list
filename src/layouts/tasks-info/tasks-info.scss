@@ -8,7 +8,7 @@
 }
 
 .created-tasks-container p {
-  font-size: $font_size_20;
+  font-size: 16px;
   font-weight: bold;
   color: #623590;
 }
@@ -19,9 +19,49 @@
 }
 
 .tasks-number {
-  margin: 17px 19px 16px 103px;
+  margin: 4px;
 }
 
-.task-name {
-  margin: 21px 102px 20px 0;
+@media screen and (max-width: 659px) {
+  .block-row {
+    width: 100%;
+  }
+  .created-tasks-container {
+    width: 240px;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .block-row {
+    width: 100%;
+  }
+  .created-tasks-container {
+    width: 150px;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .block-row {
+    width: 100%;
+  }
+  .created-tasks-container {
+    width: 150px;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .created-tasks-container {
+    width: 160px;
+    margin-right: 12px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .created-tasks-container {
+    width: 140px;
+    font-size: 5px;
+  }
 }

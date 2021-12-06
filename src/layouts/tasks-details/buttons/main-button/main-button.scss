@@ -189,7 +189,7 @@
   background-color: #f4fafd;
 }
 
-.Pending .button-text:hover{
+.Pending .button-text:hover {
   color: #6125a6 !important;
   border-bottom: 1px solid #6125a6;
   border-right: 1px solid #6125a6;
@@ -210,7 +210,7 @@
   background-color: #f3fcf3;
 }
 
-.Completed .button-text:hover{
+.Completed .button-text:hover {
   color: #6125a6 !important;
   border-bottom: 1px solid #6125a6;
   border-right: 1px solid #6125a6;
@@ -231,7 +231,7 @@
   background-color: #fff9fa;
 }
 
-.Expired .button-text:hover{
+.Expired .button-text:hover {
   color: #6125a6 !important;
   border-bottom: 1px solid #6125a6;
   border-right: 1px solid #6125a6;
@@ -254,7 +254,7 @@
   transition: all 0.1s ease-in 0s;
 }
 
-.All .button-text:hover{
+.All .button-text:hover {
   color: #6125a6 !important;
   border-bottom: 1px solid #6125a6;
   border-right: 1px solid #6125a6;
@@ -276,7 +276,7 @@
   transition: all 0.1s ease-in 0s;
 }
 
-.Inactive .button-text:hover{
+.Inactive .button-text:hover {
   color: #6125a6 !important;
   border-bottom: 1px solid #6125a6;
   border-right: 1px solid #6125a6;
@@ -317,7 +317,6 @@
 .button-404 {
   width: 149px;
   height: 40px;
-  margin: 0 98px;
   border: solid 1px #00a5ef;
   background-color: #00a5ef;
 
@@ -365,7 +364,7 @@
 }
 
 .login-button:disabled,
-button[disabled]{
+button[disabled] {
   border: 1px solid #999999;
   background-color: #cccccc;
   color: #666666;
@@ -376,7 +375,6 @@ button[disabled]{
 .big-button-add {
   width: 207px;
   height: 61px;
-  margin: 0 444px 0 0;
   border-radius: 3px;
   border: solid 1px #00a5ef;
   background-color: #ffffff;

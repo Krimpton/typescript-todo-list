@@ -13,7 +13,6 @@
 
 .disabled-dropdown-item {
   font-size: 14px;
-  //color: rgb(108, 117, 125);
   font-weight: 300;
   margin-bottom: 6px;
 }
@@ -54,4 +53,32 @@
   height: 40px;
   border-radius: 3px;
   background-color: #ffffff;
+}
+
+.action-title {
+  transition: all .2s ease-in 0.1s;
+}
+
+.action-title:hover{
+  color: #00a5ef;
+}
+
+@media screen and (max-width: 659px) {
+  .tasks-list-wrapper {
+    margin-right: 50px;
+  }
+}
+
+
+@media screen and (max-width: 575px) {
+  .tasks-list-wrapper {
+    margin-right: 50px;
+  }
+}
+
+
+@media screen and (max-width: 426px) {
+  .tasks-list-wrapper {
+    margin-right: 50px;
+  }
 }

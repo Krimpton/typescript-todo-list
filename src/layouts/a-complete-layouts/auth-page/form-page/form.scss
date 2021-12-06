@@ -55,7 +55,7 @@
   cursor: pointer;
 }
 
-.email-validation{
+.email-validation {
   margin-top: 10px;
 
   color: red;
@@ -66,4 +66,64 @@
   margin-top: 10px;
 
   color: red;
+}
+
+.firebase-error {
+  margin-top: 10px;
+  color: red;
+  font-size: 12px;
+  white-space: pre-wrap;
+  padding-left: 16px;
+}
+
+@media screen and (max-width: 1200px) {
+  .page-wrapper {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .page-wrapper {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 911px) {
+  .page-wrapper {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .page-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+@media screen and (max-width: 659px) {
+  .page-wrapper {
+    width: 100%;
+  }
+
+}
+
+
+@media screen and (max-width: 575px) {
+  .page-wrapper {
+    width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 426px) {
+  .page-wrapper {
+    width: 100%;
+  }
 }

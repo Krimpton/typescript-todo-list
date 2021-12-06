@@ -7,8 +7,8 @@ import { store } from "./store/store";
 import MainContent from "./router/main-content";
 
 ReactDOM.render(
-    <Provider store={store}>
-        <MainContent />
-    </Provider>,
-    document.getElementById("root"),
+  <Provider store={store}>
+    <MainContent />
+  </Provider>,
+  document.getElementById("root")
 );

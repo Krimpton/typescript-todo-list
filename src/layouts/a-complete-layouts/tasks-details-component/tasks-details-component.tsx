@@ -6,14 +6,14 @@ import Footer from "../../footer/footer";
 
 const TasksDetailsComponent: FC = () => {
   return (
-        <div>
-            <Header />
-            <div className="main_content">
-                <TasksDetails />
-            </div>
-            <Footer />
-        </div>
-    );
+    <div>
+      <Header />
+      <div className="content-container">
+        <TasksDetails />
+      </div>
+      <Footer />
+    </div>
+  );
 };
 
 export default TasksDetailsComponent;

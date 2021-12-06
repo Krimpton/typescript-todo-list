@@ -20,21 +20,8 @@
 }
 
 .tasks-bar p {
-  margin-bottom: 0!important;
+  margin-bottom: 0 !important;
 }
-//
-//.tasks-bar p:first-child {
-//
-//}
-//
-//.tasks-bar p:nth-child(2) {
-//  //padding: 25px 11px 14px 0;
-//}
-//
-//.tasks-bar p:last-child {
-//  //padding: 25px 63px 14px 32px;
-//}
-
 
 .pages {
   margin: 20px 0;
@@ -57,6 +44,8 @@
   flex: 1 1 auto;
   flex-flow: column nowrap;
   height: 89vh;
+
+  width: 100%;
 }
 
 .isModal-task-list {
@@ -160,12 +149,17 @@
 
 .tasks-group-list {
   margin-bottom: 20px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button-group {
-  width: 390px;
   height: 35px;
-  margin-left: 320px;
+  margin-right: 294px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .general-checkbox {
@@ -202,4 +196,117 @@ input[type="checkbox"] {
   font-size: 14px;
 
   color: #00a5ef;
+}
+
+.main-wrapper-list {
+  display: flex;
+}
+
+@media screen and (max-width: 1200px) {
+  .footer {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .footer {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 911px) {
+  .footer {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .footer {
+    width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 659px) {
+  .tasks-bar {
+    width: 500px;
+  }
+  .todos-name {
+    max-width: 500px;
+
+  }
+  .todos-group-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .tasks-list-wrapper {
+    margin-right: 235px !important;
+  }
+  .button-group {
+    width: 430px;
+  }
+}
+
+
+@media screen and (max-width: 575px) {
+  .tasks-bar {
+    width: 400px;
+    font-size: 10px !important;
+  }
+  .tasks-bar p {
+  }
+  .todos-name {
+    max-width: 400px;
+
+  }
+  .todos-group-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .tasks-list-wrapper {
+    margin-right: 155px !important;
+  }
+  .button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .date {
+    width: 300px;
+  }
+  .time {
+    font-size: 11px !important;
+  }
+  .button-view {
+    width: 40px !important;
+    height: 20px !important;
+    margin-left: 4px !important;
+  }
+  .tasks-list-wrapper {
+    margin-right: 135px !important;
+  }
+}
+
+
+@media screen and (max-width: 426px) {
+  .tasks-bar {
+    width: 400px;
+  }
+  .todos-name {
+    max-width: 400px;
+
+  }
+  .todos-group-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .tasks-list-wrapper {
+    margin-right: 105px !important;
+  }
+  .button-group {
+    width: 370px;
+  }
 }

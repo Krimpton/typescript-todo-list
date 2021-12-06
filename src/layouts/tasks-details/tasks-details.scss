@@ -2,6 +2,10 @@
 .tasks-wrapper {
   width: 650px;
   height: 517px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
 }
 
 .tasks-title {
@@ -250,7 +254,7 @@ button {
   resize: none;
 }
 
-.status-wrapper .done{
+.status-wrapper .done {
   margin-left: 20px;
 }
 
@@ -315,4 +319,45 @@ button {
 .don-button:hover {
   background-color: #6fd97c;
   color: black;
+}
+
+
+@media screen and (max-width: 659px) {
+  .tasks-container-block {
+    width: 400px;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+  }
+  .status-text p {
+    width: 420px;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .tasks-container-block {
+    width: 400px;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+  }
+  .status-text p {
+    width: 420px;
+    height: 100px;
+  }
+}
+
+
+@media screen and (max-width: 426px) {
+  .tasks-container-block {
+    width: 400px;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+  }
+  .status-text p {
+    width: 420px;
+    height: 100px;
+  }
 }

@@ -9,17 +9,18 @@ interface FormProps {
   handleClick: (email: string, pass: string) => void;
   redirect: any;
   question: string;
+  error?: string;
 }
 
-const Form: FC<FormProps> = ({title, handleClick, redirect, question}) => {
+const Form: FC<FormProps> = ({ title, handleClick, redirect, question, error }) => {
   const history = useHistory();
 
   const dashboardRedirect = () => {
     history.push("/dashboard");
   };
 
-  const [email, setEmail] = useState<string>('qwerty');
-  const [password, setPassword] = useState<string>('');
+  const [email, setEmail] = useState<string>("qwerty");
+  const [password, setPassword] = useState<string>("");
 
   const [emailDirty, setEmailDirty] = useState(false);
   const [passwordDirty, setPasswordDirty] = useState(false);
@@ -30,7 +31,7 @@ const Form: FC<FormProps> = ({title, handleClick, redirect, question}) => {
   const [formValid, setFormValid] = useState(false);
 
 
-  const [cookie, setCookie] = useCookies(['email', 'password']);
+  const [cookie, setCookie] = useCookies(["email", "password"]);
 
 
   useEffect(() => {
@@ -39,63 +40,66 @@ const Form: FC<FormProps> = ({title, handleClick, redirect, question}) => {
     } else {
       setFormValid(true);
     }
-    }, [emailError, passwordError])
+  }, [emailError, passwordError]);
 
   const blurHandler = (e) => {
     switch (e.target.name) {
-      case 'email':
-        setEmailDirty(true)
+      case "email":
+        setEmailDirty(true);
         break;
-      case 'password':
-        setPasswordDirty(true)
+      case "password":
+        setPasswordDirty(true);
         break;
     }
-  }
+  };
 
   const emailHandler = (e) => {
-    setEmail(e.target.value)
-    setCookie('email',{path: '/login'});
+    setEmail(e.target.value);
+    setCookie("email", { path: "/login" });
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if(!re.test(String(e.target.value).toLowerCase())) {
-      setEmailError('Некоректный email')
+    if (!re.test(String(e.target.value).toLowerCase())) {
+      setEmailError("Некоректный email");
     } else {
-      setEmailError('')
+      setEmailError("");
     }
-  }
+  };
 
   const passwordHandler = (e) => {
-    setPassword(e.target.value)
-    setCookie('password',{path: '/login'});
+    setPassword(e.target.value);
+    setCookie("password", { path: "/login" });
     if (e.target.value.length < 3 || e.target.value.length > 8) {
-      setPasswordError('Password должен быть > 3 и < 8 символов')
-    if (!e.target.value) {
-      setPasswordError('Password не может быть пустым')
-    }
+      setPasswordError("Password должен быть > 3 и < 8 символов");
+      if (!e.target.value) {
+        setPasswordError("Password не может быть пустым");
+      }
     } else {
-      setPasswordError('')
+      setPasswordError("");
     }
-  }
+  };
 
   return (
     <div className="page-wrapper d-flex justify-content-center">
       <div className="login-wrapper">
         <div className={"auth-form d-flex justify-content-center align-items-center flex-md-column"}>
           <label className={"auth-title"} htmlFor="authInput">
-             Login:
+            Login:
           </label>
           <div>
-            <input onBlur={e => blurHandler(e)} className={"auth-input"} name="email" type="email" value={email} onChange={e => emailHandler(e)}
-                   placeholder="email"/>
+            <input onBlur={e => blurHandler(e)} className={"auth-input"} name="email" type="email" value={email}
+                   onChange={e => emailHandler(e)}
+                   placeholder="email" />
             {(emailDirty && emailError) && <div className="email-validation">{emailError}</div>}
           </div>
           <label className={"auth-pass"} htmlFor="authPass">
-             Password:
+            Password:
           </label>
           <div>
-            <input onBlur={e => blurHandler(e)} className={"auth-pass-input"} name="password" type="password" value={password} onChange={e => passwordHandler(e)}
-                   placeholder="password"/>
+            <input onBlur={e => blurHandler(e)} className={"auth-pass-input"} name="password" type="password"
+                   value={password} onChange={e => passwordHandler(e)}
+                   placeholder="password" />
             {(passwordDirty && passwordError) && <div className="password-validation">{passwordError}</div>}
           </div>
+          {error && <div className="firebase-error">{error}</div>}
         </div>
         <Button
           text={"Submit"}
